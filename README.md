@@ -13,7 +13,7 @@ bar           | Polybar
 Theme         | Dracula-Darker
 Icon          | Miya-dark 
 Fetch tool    | fetch mastter 6000
-Editor        | Neofetch
+Editor        | NeoVim
 File Explorer | Thunar
 
   ![Screenshot of Alacritty with fetch](https://i.imgur.com/riQARiz.png)
