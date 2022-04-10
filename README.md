@@ -25,7 +25,7 @@ File Explorer | Thunar
   
   ### My neo vim config are taken and tweak from _Neovim from scratch_ 
     
-   _I use Dracula Colorscheme _
+   `I use Dracula Colorscheme`
   
       https://github.com/LunarVim/Neovim-from-scratch.git
   
@@ -33,14 +33,9 @@ File Explorer | Thunar
   
   ## my color scheme
   
-  ![colorscheme](https://i.imgur.com/eJpkVAz.png)
+  ![colorscheme](https://i.imgur.com/GDnSX6H.png)
 
 ```
-! special
-*.foreground:   #eeeef4
-*.background:   #212128
-*.cursorColor:  #eeeef4
-
 ! black
 *.color0:       #1a1a1e
 *.color8:       #404040
@@ -73,9 +68,6 @@ File Explorer | Thunar
 *.color7:       #d0d0d0
 *.color15:      #ececec
 
-*background:  #212128
-*cursorColor:  #d0d0d0
-*foreground:  #eeeef4
 ```
   
   ![Screenshot of terminal](https://i.imgur.com/Txrkrd6.png)
