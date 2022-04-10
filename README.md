@@ -8,6 +8,7 @@ Distribution  | Arch
 ------------- | -------------
 WM            | i3
 Terminal      | Alacritty
+prompt        | starship
 bar           | Polybar
 Theme         | Dracula-Darker
 Icon          | Miya-dark 
