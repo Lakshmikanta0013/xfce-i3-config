@@ -19,19 +19,20 @@ File Explorer | Thunar
   
   Copy following link to get _fetch master 6000_
   
-  `https://github.com/anhsirk0/fetch-master-6000.git`
+      https://github.com/anhsirk0/fetch-master-6000.git
   
   ![Screenshot of Neovim](https://i.imgur.com/iHh4I2U.png)
   
-  ###My neo vim config are taken and tweak from _Neovim from scratch_ 
+  ### My neo vim config are taken and tweak from _Neovim from scratch_ 
     
-    I use Dracula Colorscheme 
+   _I use Dracula Colorscheme _
   
-  `https://github.com/LunarVim/Neovim-from-scratch.git`
+      https://github.com/LunarVim/Neovim-from-scratch.git
   
   ![Screenshot of Thunar](https://i.imgur.com/AQNZ368.png)
   
-  ##my color scheme
+  ## my color scheme
+  
   ![colorscheme](https://i.imgur.com/eJpkVAz.png)
 
 ```
