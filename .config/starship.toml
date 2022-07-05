@@ -5,6 +5,7 @@
 #     ███████╗██║  ██║██║  ██╗███████║██║  ██║██║ ╚═╝ ██║██║██║  ██╗██║  ██║██║ ╚████║   ██║   ██║  ██║
 #     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝
 
+## to get all emoji install "noto-fonts-emoji" or "yay -S noto-fonts-emoji"
 
 # Don't print a new line at the start of the prompt
 add_newline = false
