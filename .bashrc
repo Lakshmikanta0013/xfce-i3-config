@@ -1,4 +1,4 @@
-#
+
 # ~/.bashrc
 #     ██╗      █████╗ ██╗  ██╗███████╗██╗  ██╗███╗   ███╗██╗██╗  ██╗ █████╗ ███╗   ██╗████████╗ █████╗
 #     ██║     ██╔══██╗██║ ██╔╝██╔════╝██║  ██║████╗ ████║██║██║ ██╔╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗
@@ -82,7 +82,25 @@ extract ()
   fi
 }
 
+############# navigation
+up () {
+  local d=""
+  local limit="$1"
 
+  # Default to limit of 1
+  if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
+    limit=1
+  fi
+
+  for ((i=1;i<=limit;i++)); do
+    d="../$d"
+  done
+
+  # perform cd. Show error if cd fails
+  if ! cd "$d"; then
+    echo "Couldn't go up $limit dirs.";
+  fi
+}
 
 ########################################################################
 ###############                 ALIASES                  ###############
@@ -125,25 +143,25 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-#pacman command
-alias pacins='sudo pacman -S'
-alias pacrmv='sudo pacman -R'
-alias pacrmv-d='sudo pacman -Rns'
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'             # remove orphaned packages
-alias parurmv='paru -Rns'
-alias pacup='sudo pacman -Syu'
-alias yup='yay -Syu'
-alias pup='paru -Syu'
-alias yin='yay -S'
-alias pin='paru -S'
+#dnf command
+alias pacins='sudo dnf install'
+alias pacrmv='sudo dnf remove'
+alias pacrmv-d='sudo dnf autoremove'          # remove orphaned packages
+alias cleanup='sudo dnf clean all'            
+alias pacup='sudo dnf update'
+alias pacsearch='dnf search'
 
 #Source config
 alias fsource='source ~/.config/fish/config.fish'
 alias bsource='source ~/.bashrc'
 alias zsource='source ~/.zshrc'
 
-#wifi
+#wifi & bluetooth
 alias wifi="nmtui"
+alias blue="blueberry"
+
+#font listing
+alias flist='fc-list | grep'
 
 #chmod
 alias mod="sudo chmod +x"
@@ -165,6 +183,8 @@ alias pull='git pull origin'
 alias push='git push origin'
 alias tag='git tag'
 alias newtag='git tag -a'
+alias gemail='git config --global user.email'
+alias gname='git config --global user.name'
 
 # script to arch system maintaincence
 #To download this https://github.com/voider755/almh.git
@@ -213,6 +233,7 @@ alias nfstab="sudo $EDITOR /etc/fstab"
 alias nbash="$VISUAL ~/.bashrc"
 alias nzsh="$VISUAL ~/.zshrc"
 alias nfish="$VISUAL ~/.config/fish/config.fish"
+alias ndnf="EDITOR /etc/dnf/dnf.conf"
 alias nbspwm="$VISUAL ~/.config/bspwm/bspwmrc"
 alias nsxhkd="$VISUAL ~/.config/sxhkd/sxhkdrc"
 alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
@@ -245,17 +266,6 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 # the terminal rickroll
 alias rr='curl -s -L http://bit.ly/10hA8iC | bash'
 
-# youtube-dl
-alias yta-aac="youtube-dl --extract-audio --audio-format aac "
-alias yta-best="youtube-dl --extract-audio --audio-format best "
-alias yta-flac="youtube-dl --extract-audio --audio-format flac "
-alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
-alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
-alias yta-opus="youtube-dl --extract-audio --audio-format opus "
-alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
-alias yta-wav="youtube-dl --extract-audio --audio-format wav "
-alias ytv-best="youtube-dl -f bestvideo+bestaudio "
-
 
 ########################################################################
 ###############                   Styling                ###############
@@ -265,7 +275,7 @@ alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 eval "$(starship init bash)"
 
 # Set fish as default prompt
-exec zsh
+exec fish
 
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi

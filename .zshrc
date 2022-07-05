@@ -19,6 +19,9 @@ export TERM="xterm-256color"             # getting proper colors
 export EDITOR="nvim"                     # $EDITOR use NeoVim in terminal
 export VISUAL="nvim"                     # $VISUAL use NeoVim in GUI mode
 
+export SUDO_EDITOR="nvim"
+alias "sudoedit"='function _sudoedit(){sudo -e "$1";};_sudoedit'
+
 ### CHANGE TITLE OF TERMINALS
 case ${TERM} in
   xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|alacritty|st|konsole*)
@@ -157,25 +160,25 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-#pacman command
-alias pacins='sudo pacman -S'
-alias pacrmv='sudo pacman -R'
-alias pacrmv-d='sudo pacman -Rns'
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'             # remove orphaned packages
-alias parurmv='paru -Rns'
-alias pacup='sudo pacman -Syu'
-alias yup='yay -Syu'
-alias pup='paru -Syu'
-alias yin='yay -S'
-alias pin='paru -S'
+#dnf command
+alias pacins='sudo dnf install'
+alias pacrmv='sudo dnf remove'
+alias pacrmv-d='sudo dnf autoremove'          # remove orphaned packages
+alias cleanup='sudo dnf clean all'            
+alias pacup='sudo dnf update'
+alias pacsearch='dnf search'
 
 #Source config
 alias fsource='source ~/.config/fish/config.fish'
 alias bsource='source ~/.bashrc'
 alias zsource='source ~/.zshrc'
 
-#wifi
+#wifi & bluetooth
 alias wifi="nmtui"
+alias blue="blueberry"
+
+#font listing
+alias flist='fc-list | grep'
 
 #chmod
 alias mod="sudo chmod +x"
@@ -197,6 +200,8 @@ alias pull='git pull origin'
 alias push='git push origin'
 alias tag='git tag'
 alias newtag='git tag -a'
+alias gemail='git config --global user.email'
+alias gname='git config --global user.name'
 
 # script to arch system maintaincence
 #To download this https://github.com/voider755/almh.git
@@ -240,11 +245,12 @@ alias nconfgrub="sudo $EDITOR /boot/grub/grub.cfg"
 alias nmkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
 alias nmirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
 alias narcomirrorlist='sudo $EDITOR /etc/pacman.d/arcolinux-mirrorlist'
-alias nsddm="sudo $EDITOR /usr/lib/sddm/sddm.conf.d/default.conf"
-alias nfstab="sudo $EDITOR /etc/fstab"
+alias nsddm="sudo -e /usr/lib/sddm/sddm.conf.d/default.conf"
+alias nfstab="sudo -e /etc/fstab"
 alias nbash="$VISUAL ~/.bashrc"
 alias nzsh="$VISUAL ~/.zshrc"
 alias nfish="$VISUAL ~/.config/fish/config.fish"
+alias ndnf="EDITOR /etc/dnf/dnf.conf"
 alias nbspwm="$VISUAL ~/.config/bspwm/bspwmrc"
 alias nsxhkd="$VISUAL ~/.config/sxhkd/sxhkdrc"
 alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
@@ -302,7 +308,7 @@ alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 #Custimize scripts
   #neofetch
   # figlet -c -f doom 'Lakshmikanta'
-  fm6000 -random -color random
+  # fm6000 -random -color random
 
 #starship startup scripts
 eval "$(starship init zsh)"

@@ -288,7 +288,7 @@ alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 #Custimize scripts
   # neofetch
   # figlet -c -f doom 'Lakshmikanta'
-  fm6000 -random -color random
+  #fm6000 -random -color random
 
 end
 

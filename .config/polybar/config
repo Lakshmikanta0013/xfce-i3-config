@@ -84,7 +84,7 @@ alert = #f24054
 red = #f24054
 green= #40f260
 yellow = #f2f260
-blue = #8060f2
+blue = #a480f2
 cyan = #00bcd4
 orange = #f28080
 pink = #f240f2
@@ -120,19 +120,18 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
+;################ Fonts ########################
+
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = Hack Regular:pixelsize=12;1
-font-1 = Font Awesome 6 Free:pixelsize=12;2
-font-2 = Font Awesome 6 Free Solid:pixelsize=12;2
-font-3 = Font Awesome 6 Brands:pixelsize=12;2
+font-0 = Hack Nerd Font:style=Regular:pixelsize=12;1
 
 ;===============================================================================
-; modules: [ arch-aur-updates, battery ,  brightnessctl* ,bullet, cpu,  date ,i3, kdeconnect, memory,  
-;            network, powermenu , pulseaudio , space ,xwindow ,  wifi ]
+; modules: [ arch-aur-updates, battery , bluetooth, brightnessctl* ,bullet, cpu,  date ,i3, kdeconnect, keyboard
+;            memory, network, powermenu , pulseaudio , space ,xwindow ,  wifi ]
 
-modules-left = bullet workspace xwindow
+modules-left = bullet i3 xwindow
 modules-center =
-modules-right = network wifi pulseaudio battery brightnessctl uptime date powermenu
+modules-right = network wifi bluetooth pulseaudio battery brightnessctl uptime date powermenu
 ;===============================================================================
 separator =
 
@@ -174,6 +173,65 @@ cursor-scroll = ns-resize
 ################################################################################
 
 
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+show-urgent = true
+enable-click = true
+enable-scroll = true
+wrapping-scroll = true
+reverse-scroll = true
+fuzzy-match = false
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+
+label-mode = %{T2}%mode%%{T-}
+label-mode-padding = 1
+label-mode-background = ${colors.background-alt}
+
+label-focused = %{T2}%icon%%{T-}
+label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.cyan}
+label-focused-padding = 1
+label-focused-font = 2
+
+label-unfocused = %{T2}%icon%%{T-}
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-background = ${colors.background-alt}
+label-unfocused-padding = 1
+label-unfocused-font = 2
+
+label-visible = %{T2}%icon%%{T-}
+label-visible-foreground = ${colors.foreground}
+label-visible-background = ${colors.background-alt}
+label-visible-padding = 1
+label-visible-font = 2
+
+label-urgent = %{T2}%icon%%{T-}
+label-urgent-foreground = ${colors.background}
+label-urgent-background = ${colors.red}
+label-urgent-padding = 1
+label-urgent-font = 2
+
+; Separator in between workspaces
+;label-separator = |
+;label-separator-foreground = ${colors.cyan}
+;label-separator-padding = 0
+;===================================================================================
+
+
 [module/workspace]
 type = internal/xworkspaces
 
@@ -182,20 +240,16 @@ enable-click = true
 enable-scroll = true
 reverse-scroll = true
 
-;extra icons to choose from
-;http://fontawesome.io/cheatsheet/
-;             
-
 icon-0 = 1;
 icon-1 = 2;
 icon-2 = 3;
-icon-3 = 4;
-icon-4 = 5;
-icon-5 = 6;
-icon-6 = 7;
-icon-7 = 8;
-icon-8 = 9;
-icon-default = 
+icon-3 = 4;
+icon-4 = 5;
+icon-5 = 6;
+icon-6 = 7;
+icon-7 = 8;
+icon-8 = 9;
+icon-default = 
 
 format = <label-state>
 label-monitor = %name%
@@ -203,23 +257,22 @@ label-monitor = %name%
 label-active = %icon%
 label-active-foreground = ${colors.background}
 label-active-background = ${colors.cyan}
-label-active-underline= #6790eb
 label-active-padding = 1
+label-active-font = 2
 
 label-occupied = %icon%
-label-occupied-background = ${colors.background-alt}
+label-occupied-background = ${colors.background}
 label-occupied-foreground = ${colors.foreground}
 label-occupied-padding = 1
+label-occupied-font = 2
 
 label-urgent = %icon%
 label-urgent-foreground = ${colors.background}
 label-urgent-background = ${colors.red}
 label-urgent-underline = ${colors.alert}
 label-urgent-padding = 1
+label-urgent-font = 2
 
-label-empty = %name%
-label-empty-foreground = ${colors.foreground}
-label-empty-padding = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
@@ -238,7 +291,7 @@ type = internal/xwindow
 label = %title%
 label-maxlen = 45
 
-format-prefix = "  "
+format-prefix = " %{T1}%{T-}"
 ;format-prefix-underline = ${colors.red}
 format-foreground = ${colors.cyan}
 ;format-background = ${colors.background-trans}
@@ -256,9 +309,11 @@ content-background = ${colors.background-trans}
 
 [module/bullet]
 type= custom/text
-content= "  "
+content= ""
+click-left= exec rofi -modi drun -show drun -config ~/.config/rofi/panel.rasi
 content-background= ${colors.red}
 content-foreground = ${colors.background}
+content-padding = 1
 
 ################################################################################
 ################################################################################
@@ -274,7 +329,7 @@ label =: %output%
 label-padding-right = 1
 format-foreground = ${colors.background}
 format-background = ${colors.red}
-format-prefix = ""
+format-prefix = ""
 format-prefix-padding = 1
 ;===============================================================================
 
@@ -339,7 +394,7 @@ label-discharging = %percentage%%
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
 ;   %percentage_raw%
-label-full = 100%
+label-full =  100%
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
@@ -369,6 +424,17 @@ animation-discharging-3 = 
 animation-discharging-4 = 
 ; Framerate in milliseconds
 ;=================================================================================
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/scripts/bluetooth.sh
+interval = 2
+click-left = exec blueberry
+click-right = exec ~/.config/polybar/scripts/toggle_bluetooth.sh
+format-padding = 1
+format-background = ${colors.blue}
+format-foreground = ${colors.background}
+;================================================================================
 
 [module/brightnessctl]
 ;Dependencies "brightnessctl"
@@ -407,14 +473,6 @@ label-background = ${colors.background-alt}
 label-foreground = ${colors.foreground}
 label-padding = 1
 label-underline = ${colors.pink}
-;===================================================
-
-[module/deb-update]
-type = custom/script
-exec = (sleep 90s && python ~/.config/polybar/scripts/deb-update.py)
-interval = 7200
-format-prefix = " "
-tail = true
 ;===============================================================================
 
 [module/cpu]
@@ -444,11 +502,31 @@ tail = true
 ;format-padding = 1
 ;===============================================================================
 
+[module/keyboard]
+;https://github.com/jaagr/polybar/wiki/Module:-xkeyboard
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = ""
+format-prefix-foreground = ${colors.background}
+format-prefix-background = ${colors.cyan}
+format-prefix-padding = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+label-layout = %layout%
+label-layout-padding = 1
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.background}
+label-indicator-underline = ${colors.foreground}
+;###############################################################################
+
 [module/memory]
 type = internal/memory
 interval = 1
 
-format-prefix = ""
+format-prefix = ""
 format-prefix-background = ${colors.purple}
 format-prefix-foreground = ${colors.background}
 format-prefix-padding = 1
@@ -506,7 +584,7 @@ ramp-signal-5 = 😈
 [module/powermenu]
 type = custom/script
 tail = true
-exec = echo "%{T2}%{T-}"
+exec = echo "⏻"
 label-background = ${colors.red}
 label-foreground = ${colors.background}
 label-padding = 1
@@ -522,16 +600,16 @@ label-volume-foreground = ${colors.background}
 label-volume-padding-right = 1
 use-ui-max = false
 
-label-muted =  muted
+label-muted = 婢 muted
 label-muted-background = ${colors.yellow}
 label-muted-foreground = #666
 label-muted-padding = 1
 
 ; Only applies if <ramp-volume> is used
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
+ramp-volume-0 = 奄
+ramp-volume-1 = 
+ramp-volume-2 = 奔
+ramp-volume-3 = 墳
 ramp-volume-4 = 
 ramp-volume-background = ${colors.yellow}
 ramp-volume-foreground = ${colors.background}
@@ -554,7 +632,7 @@ label-padding = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background-alt}
 
-format-prefix = ""
+format-prefix = ""
 format-prefix-foreground = ${colors.background}
 format-prefix-background = ${colors.red}
 format-prefix-padding = 1

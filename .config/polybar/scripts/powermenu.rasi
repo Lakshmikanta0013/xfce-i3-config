@@ -1,7 +1,3 @@
-/*******************************************************
- * ROFI configs i3 powermenu for EndeavourOS
- * Maintainer: joekamprad <joekamprad@endeavouros.com>
- *******************************************************/
 configuration {
     font:                           "Sourcecode Pro Regular 10";
     show-icons:                     false;
@@ -12,8 +8,8 @@ configuration {
 }
 
 * {
-    selected-normal-foreground:  rgba ( 255, 147, 5, 100 % );
-    foreground:                  rgba ( 196, 203, 212, 100 % );
+    selected-normal-foreground:  #212128;
+    foreground:                  #eeeef4;
     normal-foreground:           @foreground;
     alternate-normal-background: rgba ( 45, 48, 59, 100 % );
     red:                         rgba ( 220, 50, 47, 100 % );
@@ -29,7 +25,7 @@ configuration {
     alternate-normal-foreground: @foreground;
     normal-background:           rgba ( 45, 48, 59, 1 % );
     lightfg:                     rgba ( 88, 104, 117, 100 % );
-    selected-normal-background:  rgba ( 24, 26, 32, 100 % );
+    selected-normal-background:  #f24054;
     border-color:                rgba ( 124, 131, 137, 100 % );
     spacing:                     2;
     separatorcolor:              rgba ( 45, 48, 59, 1 % );

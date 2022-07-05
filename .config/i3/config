@@ -294,15 +294,15 @@ bindsym $mod+Shift+r restart
 
 ################# menu's in archlinux
 # start dmenu
-bindsym $mod+d exec dmenu_run -h 24 
+bindsym $mod+d exec dmenu_run -h 24 -nb '#1a1e1e' -sf '#212128' -sb '#f24054' -nf '#00e5ff' -fn "Source Code Pro 10"
 # rofi bindings
-bindsym $mod+p exec rofi -modi drun -show drun -config ~/.config/rofi/col_singlerow.rasi
+bindsym $mod+p exec rofi -modi drun -show drun -config ~/.config/rofi/panel.rasi
 bindsym $mod+t exec rofi -modi window -show window -config ~/.config/rofi/rofidmenu.rasi
 
 ############### i3 scripts 
 
 ### exit menu 
-bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
+bindsym $mod+Shift+e exec ~/.config/polybar/scripts/powermenu
 
 ### Lock the system
 # lock with a picture:
@@ -311,7 +311,9 @@ bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
 #bindsym $mod+l exec ~/.config/i3/scripts/blur-lock
 #with betterlockscreen
 bindsym $mod+Shift+l exec betterlockscreen --off 120 --lock dimblur
+#### use command "betterlockscreen -u ~/.background"
 # Alternative (set last used background)
+
 exec --no-startup-id source ~/.fehbg
 ### open new empty workspace
 bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
