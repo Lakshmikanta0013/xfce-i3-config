@@ -567,7 +567,7 @@ label-connected-background = ${colors.pink}
 label-connected-foreground = ${colors.background}
 label-connected-padding = 1
 
-label-disconnected = "  disconnected"
+label-disconnected = ""
 label-disconnected-background = ${colors.pink}
 label-disconnected-foreground = #666
 label-disconnected-padding = 1
@@ -669,9 +669,9 @@ label-connected-background = ${colors.orange}
 label-connected-foreground = ${colors.background}
 label-connected-padding = 1
 
-label-disconnected = "%{A1:nm-connection-editor:}%{A}"
+label-disconnected = "%{A1:nm-connection-editor:}睊%{A}"
 label-disconnected-background = ${colors.pink}
-label-disconnected-foreground = #666
+label-disconnected-foreground = ${colors.background}
 label-disconnected-padding = 1
 
 ;===============================================================================

@@ -296,7 +296,7 @@ bindsym $mod+Shift+r restart
 # start dmenu
 bindsym $mod+d exec dmenu_run -h 24 -nb '#1a1e1e' -sf '#212128' -sb '#f24054' -nf '#00e5ff' -fn "Source Code Pro 10"
 # rofi bindings
-bindsym $mod+p exec rofi -modi drun -show drun -config ~/.config/rofi/panel.rasi
+bindsym $mod+p exec rofi -modi drun -show drun -config ~/.config/rofi/col_singlerow.rasi
 bindsym $mod+t exec rofi -modi window -show window -config ~/.config/rofi/rofidmenu.rasi
 
 ############### i3 scripts 
