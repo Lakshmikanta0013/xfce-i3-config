@@ -134,9 +134,14 @@ alias mkdir="mkdir -p"
 alias cp="cp -i -r"
 alias mv='mv -i'
 alias rm='rm -i'
+alias scp='sudo cp'
+alias smv='sudo mv'
 
 #Custom Clear command
 alias clr='clear;colorscript random'
+
+#java runtime
+alias jar='java -jar'
 
 # fastboot sudo permition
 alias fastboot='sudo fastboot'
