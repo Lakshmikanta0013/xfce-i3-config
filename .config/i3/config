@@ -38,7 +38,8 @@ set $terminal alacritty
 set $browser firefox
 set $file thunar
 set $editor code
-set $note Notepadqq
+set $note Mousepad
+set $photoViewer Ristretto
 
 ################# Define the movements keys - variables
 set $up Up
@@ -283,13 +284,14 @@ bindsym $mod+r mode "resize"
 
 # start a terminal
 bindsym $mod+Return exec $terminal
+bindsym $mod+c exec $editor
 
 # kill focused window
 bindsym $mod+q kill
 bindsym $mod+Shift+q kill
 
 # reload & restart the configuration file
-bindsym $mod+Shift+c reload
+#bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 ################# menu's in archlinux
@@ -356,9 +358,9 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus parent
 # focus the child container
-bindsym $mod+c focus child
+bindsym $mod+Shift+c focus child
 
 ######################## Multimedia Keys
 
@@ -422,7 +424,7 @@ set $ws10 "10"
 assign [class="Alacritty|kitty"] $ws1
 assign [class="firefox|Google-chrome"] $ws2
 assign [class="Thunar|Pcmanfm"] $ws3
-assign [class="code-oss|Subl1|VSCodium|Geany|Atom"] $ws4
+assign [class="code-oss|Code|Subl1|VSCodium|Geany|Atom"] $ws4
 assign [class="Gimp|kdenlive"] $ws8
 assign [class="vlc|libreoffice"] $ws6
 
@@ -434,6 +436,7 @@ for_window [class=Thunar] focus
 for_window [class=Pcmanfm] focus
 for_window [class=Geany] focus
 for_window [class=code-oss] focus
+for_window [class=Code] focus
 for_window [class=Subl] focus
 for_window [class=VSCodium] focus
 for_window [class=Atom] focus
@@ -459,6 +462,7 @@ exec --no-startup-id volumeicon
 ########   floating rules    #######
 ####################################
 
+for_window [class="Ristretto"] floating enable
 for_window [class="__main__.py"] floating enable resize set 800 640 border normal
 for_window [class="Blueberry.py"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
@@ -489,6 +493,9 @@ for_window [class="xdman-Main"] floating enable
 for_window [class="Notepadqq"] floating enable
 for_window [class="Mousepad"] floating enable
 for_window [class="Chromium"] floating enable
+for_window [class="Arcolinux-welcome-app.py"] floating enable
+for_window [class="Archlinux-tweak-tool.py"] floating enable
+
 
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [title="alsamixer"] floating enable border pixel 1

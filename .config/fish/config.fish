@@ -15,6 +15,9 @@ set LANG "en_IN.utf8"
 set -x LC_ALL en_IN.UTF-8
 set -x LC_CTYPE en_IN.UTF-8
 
+### Set timedatectl synchronization on
+alias set-time ='timedatectl set-ntp true'
+
 ### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
 set TERM "xterm-256color"                         # Sets the terminal type
@@ -283,7 +286,7 @@ alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
 # Or install it from the Arch User Repository: shell-color-scripts
-#colorscript random
+colorscript random
 
 #Custimize scripts
   # neofetch

@@ -165,13 +165,17 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-#dnf command
-alias pacins='sudo dnf install'
-alias pacrmv='sudo dnf remove'
-alias pacrmv-d='sudo dnf autoremove'          # remove orphaned packages
-alias cleanup='sudo dnf clean all'            
-alias pacup='sudo dnf update'
-alias pacsearch='dnf search'
+#pacman command
+alias pacins='sudo pacman -S'
+alias pacrmv='sudo pacman -R'
+alias pacrmv-d='sudo pacman -Rns'
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)'             # remove orphaned packages
+alias parurmv='paru -Rns'
+alias pacup='sudo pacman -Syu'
+alias yup='yay -Syu'
+alias pup='paru -Syu'
+alias yin='yay -S'
+alias pin='paru -S'
 
 #Source config
 alias fsource='source ~/.config/fish/config.fish'
