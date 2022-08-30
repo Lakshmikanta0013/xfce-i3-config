@@ -202,7 +202,7 @@ alias wget="wget -c"
 alias userlist="cut -d: -f1 /etc/passwd"
 
 #grub update
-alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 
 #get fastest mirrors in your neighborhood
@@ -286,13 +286,14 @@ alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
 # Or install it from the Arch User Repository: shell-color-scripts
-colorscript random
+  #colorscript random
 
 #Custimize scripts
-  # neofetch
+neofetch | lolcat
   # figlet -c -f doom 'Lakshmikanta'
   #fm6000 -random -color random
 
 end
 
+##starship config
 starship init fish | source

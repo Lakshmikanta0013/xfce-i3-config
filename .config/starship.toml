@@ -62,13 +62,18 @@ format = "$all_status$ahead_behind"
 
 # Indicates when in bash shell.
 [custom.bash]
-command = "echo 🚀"
+command = "echo 🅱🅰🆂🅷"
 when = '[ "$STARSHIP_SHELL" == "bash" ]'
 
 # Indicates when in fish shell.
 [custom.fish]
 command = "echo : 🅵🅸🆂🅷"
 when = 'test "$STARSHIP_SHELL" = "fish"'
+
+# Indicates when in zsh shell.
+[custom.zsh]
+command = "echo : 🆉🆂🅷"
+when = 'test "$STARSHIP_SHELL" = "zsh"'
 
 # Indicates when in Nushell.
 [custom.nu]
