@@ -13,6 +13,9 @@
   </property>
   <property name="hidden-devices" type="array">
     <value type="string" value="2E8AD1FD8AD1C18F"/>
+    <value type="string" value="2022-09-08-03-19-47-00"/>
+    <value type="string" value="7796BF99038EDBCE"/>
+    <value type="string" value="6E9781F365706FF3"/>
   </property>
   <property name="misc-single-click" type="bool" value="false"/>
   <property name="misc-thumbnail-mode" type="string" value="THUNAR_THUMBNAIL_MODE_ALWAYS"/>

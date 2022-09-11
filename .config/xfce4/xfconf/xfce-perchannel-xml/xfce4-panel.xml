@@ -4,7 +4,7 @@
   <property name="configver" type="int" value="2"/>
   <property name="panels" type="array">
     <value type="int" value="1"/>
-    <property name="dark-mode" type="bool" value="true"/>
+    <property name="dark-mode" type="bool" value="false"/>
     <property name="panel-1" type="empty">
       <property name="background-rgba" type="array">
         <value type="double" value="0.247467"/>
@@ -14,7 +14,7 @@
       </property>
       <property name="background-style" type="uint" value="1"/>
       <property name="enter-opacity" type="uint" value="100"/>
-      <property name="icon-size" type="uint" value="24"/>
+      <property name="icon-size" type="uint" value="0"/>
       <property name="leave-opacity" type="uint" value="100"/>
       <property name="length" type="uint" value="100"/>
       <property name="mode" type="uint" value="0"/>
@@ -30,21 +30,23 @@
         <value type="int" value="20"/>
         <value type="int" value="14"/>
         <value type="int" value="21"/>
-        <value type="int" value="2"/>
+        <value type="int" value="25"/>
         <value type="int" value="5"/>
         <value type="int" value="6"/>
         <value type="int" value="22"/>
         <value type="int" value="8"/>
         <value type="int" value="9"/>
         <value type="int" value="10"/>
+        <value type="int" value="23"/>
         <value type="int" value="11"/>
         <value type="int" value="12"/>
         <value type="int" value="13"/>
         <value type="int" value="7"/>
       </property>
-      <property name="position" type="string" value="p=8;x=683;y=753"/>
+      <property name="position" type="string" value="p=6;x=683;y=15"/>
       <property name="position-locked" type="bool" value="true"/>
-      <property name="size" type="uint" value="36"/>
+      <property name="size" type="uint" value="24"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
     </property>
   </property>
   <property name="plugins" type="empty">
@@ -91,16 +93,6 @@
         <value type="string" value="16620445647.desktop"/>
       </property>
     </property>
-    <property name="plugin-2" type="string" value="tasklist">
-      <property name="flat-buttons" type="bool" value="false"/>
-      <property name="grouping" type="uint" value="0"/>
-      <property name="include-all-monitors" type="bool" value="true"/>
-      <property name="show-handle" type="bool" value="false"/>
-      <property name="show-labels" type="bool" value="false"/>
-      <property name="switch-workspace-on-unminimize" type="bool" value="false"/>
-      <property name="show-wireframes" type="bool" value="false"/>
-      <property name="window-scrolling" type="bool" value="false"/>
-    </property>
     <property name="plugin-20" type="string" value="launcher">
       <property name="items" type="array">
         <value type="string" value="16620445718.desktop"/>
@@ -140,6 +132,12 @@
         <value type="string" value="blueman"/>
       </property>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “k30” active: k30 (30%)"/>
+        <value type="string" value="wi-fi network connection “k30” active: k30 (85%)"/>
+        <value type="string" value="wi-fi network connection “jiodongle” active: jiodongle (97%)"/>
+        <value type="string" value="wi-fi network connection “jiodongle” active: jiodongle (74%)"/>
+        <value type="string" value="wi-fi network connection “jiodongle” active: jiodongle (76%)"/>
+        <value type="string" value="wi-fi network connection “jiodongle” active: jiodongle (89%)"/>
         <value type="string" value="no network connection"/>
         <value type="string" value="wi-fi network connection “jiodongle” active: jiodongle (88%)"/>
         <value type="string" value="wi-fi network connection “jiodongle” active: jiodongle (68%)"/>
@@ -166,6 +164,16 @@
       <property name="items" type="array">
         <value type="string" value="16620855381.desktop"/>
       </property>
+    </property>
+    <property name="plugin-23" type="string" value="xkb">
+      <property name="display-type" type="uint" value="2"/>
+      <property name="display-name" type="uint" value="1"/>
+      <property name="group-policy" type="uint" value="0"/>
+    </property>
+    <property name="plugin-25" type="string" value="tasklist">
+      <property name="show-labels" type="bool" value="false"/>
+      <property name="switch-workspace-on-unminimize" type="bool" value="false"/>
+      <property name="show-handle" type="bool" value="false"/>
     </property>
   </property>
 </channel>

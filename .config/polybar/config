@@ -86,6 +86,7 @@ green= #40f260
 yellow = #f2f260
 blue = #a480f2
 cyan = #00bcd4
+tela = #30f0b2
 orange = #f28080
 pink = #f240f2
 purple = #8060f2
@@ -132,7 +133,7 @@ font-1 = Hack Nerd Font:style=Bold:pixelsize=14;2
 
 modules-left = bullet i3 xwindow
 modules-center =
-modules-right = network wifi bluetooth pulseaudio battery brightnessctl date powermenu
+modules-right = network wifi bluetooth pulseaudio battery brightnessctl cpu date powermenu
 ;===============================================================================
 separator =
 
@@ -398,6 +399,7 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
+ramp-capacity-font = 2
 
 ; Only applies if <bar-capacity> is used
 bar-capacity-width = 10
@@ -408,6 +410,7 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
+animation-charging-font = 2
 ; Framerate in milliseconds
 animation-charging-framerate = 750
 
@@ -418,6 +421,7 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-3 = 
 animation-discharging-4 = 
+animation-discharging-font = 2
 ; Framerate in milliseconds
 ;=================================================================================
 
@@ -463,6 +467,7 @@ format-prefix = ""
 format-prefix-background = ${colors.pink}
 format-prefix-foreground = ${colors.background}
 format-prefix-padding = 1
+format-prefix-font = 2
 
 label = %time%
 label-background = ${colors.background-alt}
@@ -476,13 +481,14 @@ type = internal/cpu
 interval = 1
 
 format-prefix = ""
-format-prefix-background = ${colors.cyan}
+format-prefix-background = ${colors.orange}
 format-prefix-foreground = ${colors.background}
-format-prefix-padding = 1
+format-prefix-padding-left = 1
+format-prefix-font = 2
 
 label = %{T1}%percentage:2%%%{T-}
-label-background = ${colors.background-alt}
-label-foreground = ${colors.foreground}
+label-background = ${colors.orange}
+label-foreground = ${colors.background}
 label-padding = 1
 label-underline = ${colors.cyan}
 ;===============================================================================
@@ -504,6 +510,7 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix = ""
+format-prefix-font = 2
 format-prefix-foreground = ${colors.background}
 format-prefix-background = ${colors.cyan}
 format-prefix-padding = 1
@@ -584,6 +591,7 @@ exec = echo "⏻"
 label-background = ${colors.red}
 label-foreground = ${colors.background}
 label-padding = 1
+label-font = 2
 click-left = exec ~/.config/polybar/scripts/powermenu
 ;===============================================================================
 
@@ -600,6 +608,7 @@ label-muted = 婢 muted
 label-muted-background = ${colors.yellow}
 label-muted-foreground = #666
 label-muted-padding = 1
+label-muted-font = 2
 
 ; Only applies if <ramp-volume> is used
 ramp-volume-0 = 奄
@@ -610,6 +619,7 @@ ramp-volume-4 = 
 ramp-volume-background = ${colors.yellow}
 ramp-volume-foreground = ${colors.background}
 ramp-volume-padding = 1
+ramp-volume-font = 2
 
 ;Right and Middle click
 click-right = pavucontrol
@@ -661,12 +671,12 @@ format-disconnected = <label-disconnected>
 ;   %linkspeed% [wired]
 
 label-connected = "%{A1:nm-connection-editor:} %essid%%{A}"
-label-connected-background = ${colors.orange}
+label-connected-background = ${colors.tela}
 label-connected-foreground = ${colors.background}
 label-connected-padding = 1
 
 label-disconnected = "%{A1:nm-connection-editor:}睊%{A}"
-label-disconnected-background = ${colors.pink}
+label-disconnected-background = ${colors.tela}
 label-disconnected-foreground = ${colors.background}
 label-disconnected-padding = 1
 

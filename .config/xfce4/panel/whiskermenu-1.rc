@@ -1,5 +1,5 @@
 favorites=xfce4-web-browser.desktop,xfce4-mail-reader.desktop,xfce4-file-manager.desktop,libreoffice-writer.desktop,libreoffice-calc.desktop,xfce4-terminal-emulator.desktop
-recent=xfce4-terminal-emulator.desktop,org.xfce.mousepad.desktop,xfce4-file-manager.desktop
+recent=visual-studio-code.desktop,urxvt.desktop,org.pipewire.Helvum.desktop,xfce4-file-manager.desktop,libreoffice-writer.desktop,xfce4-terminal-emulator.desktop,org.xfce.mousepad.desktop
 button-title=Menu
 button-icon=distributor-logo-archlinux
 button-single-row=false

@@ -20,8 +20,15 @@ require "user.indentline"
 require "user.alpha"
 require "user.lsp"
 require "user.dap"
-
 vim.cmd[[colorscheme dracula]]
+
+require('scrollview').setup({
+  excluded_filetypes = {'nerdtree'},
+  current_only = true,
+  winblend = 75,
+  --base = 'buffer',
+  --column = 80
+})
 
 require 'colorizer'.setup()
 
@@ -59,5 +66,3 @@ require 'colorizer'.setup {
   '!vim'; -- Exclude vim from highlighting.
   -- Exclusion Only makes sense if '*' is specified!
 }
-
-

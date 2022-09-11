@@ -60,6 +60,9 @@ return packer.startup(function(use)
   -- Colorizer
   use "norcalli/nvim-colorizer.lua"
 
+  -- ScrollBar
+  use 'dstein64/nvim-scrollview'
+
   -- Colorschemes
   use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
   use { "lunarvim/darkplus.nvim", commit = "2584cdeefc078351a79073322eb7f14d7fbb1835" }
