@@ -37,7 +37,7 @@ set $mod Mod4
 set $terminal alacritty
 set $browser firefox
 set $file thunar
-set $editor subl
+set $editor code
 set $note Mousepad
 set $photoViewer Ristretto
 

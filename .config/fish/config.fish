@@ -128,6 +128,8 @@ alias clr='clear;colorscript random'
 # fastboot sudo permition
 alias fastboot='sudo fastboot'
 
+#dd command
+alias dd='sudo dd bs=4M status=progress'
 # navigation
 alias ..='cd ..'
 alias ...='cd ../..'
