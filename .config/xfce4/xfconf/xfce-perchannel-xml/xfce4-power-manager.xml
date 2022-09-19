@@ -18,5 +18,6 @@
     <property name="brightness-on-ac" type="uint" value="120"/>
     <property name="show-panel-label" type="int" value="1"/>
     <property name="show-presentation-indicator" type="bool" value="true"/>
+    <property name="inactivity-sleep-mode-on-ac" type="uint" value="1"/>
   </property>
 </channel>

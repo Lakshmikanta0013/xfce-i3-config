@@ -78,7 +78,7 @@ new_window pixel 1
 # delete or uncomment the following lines if you do not have it or do not
 # want it
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 gaps inner 2
 gaps outer 2
 # smart_gaps on
@@ -461,7 +461,7 @@ exec --no-startup-id volumeicon
 ########   floating rules    #######
 ####################################
 
-for_window [floating_from="user"] border pixel 5 
+for_window [floating_from="user"] border pixel 2 
 
 for_window [class="Ristretto"] floating enable resize set 1024 640 
 for_window [class="__main__.py"] floating enable resize set 800 640 border normal
@@ -539,86 +539,48 @@ for_window [window_role="GtkFileChooserDialog"] floating enable resize set 800 6
 #client.urgent              $red            $red            $textcolor      $red
 
 # //// Royal Dark ////
+set $bgdark     #1a1a1e
 set $bgcolor    #212128
-set $ibgcolor   #404040
+set $ibgcolor   #56566c
 set $textcolor  #eeeef4
 set $itextcolor #d0d0d0
 set $red        #f24054
-set $yellow     #f2f260
+set $yellow     #f2f230
 set $green      #40f260
-set $cyan       #00bcd4
-set $blue       #8060f2
+set $cyan       #00e5ff
+set $tela       #30f0b2
+set $blue       #7755f2
 set $magenta    #f240f2
 
 # define colors for windows:
 #                          border          background      text            indicator
-client.focused             $magenta         $bgcolor        $textcolor      $bgcolor
-client.unfocused           $magenta         $ibgcolor       $textcolor      $ibgcolor
-client.focused_inactive    $magenta         $ibgcolor       $itextcolor     $ibgcolor
-client.urgent              $red             $red            $textcolor      $red
+client.focused             $bgdark         $tela          $textcolor      $bgcolor
+client.unfocused           $bgdark         $ibgcolor      $textcolor      $ibgcolor
+client.focused_inactive    $bgdark         $ibgcolor      $itextcolor     $ibgcolor
+client.urgent              $ibgcolor       $red           $textcolor      $red
 
 ############################################
 # bar settings (input comes from i3blocks) #
 ############################################
 
-# Start i3bar to display a workspace bar
-# (plus the system information i3status finds out, if available)
 #bar {
-#       font pango:Noto Sans Regular 10, FontAwesome 10
-#       status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#           position top
-#           i3bar_command i3bar --transparency
-# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
-# reference: https://i3wm.org/docs/userguide.html#_tray_output
-#           tray_output primary
-#           tray_padding 0
+#    font pango: Hack Nerd Font 11
+#    output primary
+#    position top
+#    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#    strip_workspace_numbers yes
+#    tray_output primary
 #
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-#strip_workspace_numbers yes
-##strip_workspace_name no
+#    colors {
+#        background $ibgcolor
+#        statusline $textcolor
+#        separator  $cyan
 #
-#           colors {
-#           separator          $yellow
-#           background         $bgcolor
-#           statusline         $textcolor
-#                                          border             bg                txt             indicator
-#                    active_workspace          $bgcolor             $bgcolor          $textcolor      $red
-#                focused_workspace       $bgcolor           $yellow         $bgcolor        $red
-#                inactive_workspace      $ibgcolor          $ibgcolor       $itextcolor   $red
-#                urgent_workspace        $red               $red            $textcolor    $red
-#   }
-#}
-
-
-# you can add different bars for multidisplay setups on each display:
-# set output HDMI-0 to the display you want the bar, --transparency can be set.
-# Transparency needs rgba color codes to be used where the last two letters are the transparency factor see here:
-# https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
-# #08052be6 --> e6=90%
-
-# bar {
-#   font pango:Noto Sans Regular 9, FontAwesome 9
-#   status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
-#   i3bar_command i3bar --transparency
-#   output HDMI-0
-#   position top
+#        active_workspace        $bgdark           $bgcolor        $textcolor           $red
+#        focused_workspace       $bgcolor           $tela         $bgcolor             $red
+#        inactive_workspace      $ibgcolor          $ibgcolor       $itextcolor          $red
+#        urgent_workspace        $red               $red            $textcolor           $red
 #
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-#strip_workspace_numbers yes
-##strip_workspace_name no
-#
-#   colors {
-#       separator          $purple
-#       background         $darkbluetrans
-#           statusline         $white
-#                   border      bg      txt     indicator
-#       focused_workspace   $lighterblue    $lighterblue    $darkblue   $purple
-#       active_workspace    $lightdblue $lightdblue $darkblue   $purple
-#       inactive_workspace  $darkblue   $darkblue   $lightdblue $purple
-#       urgent_workspace    $urgentred  $urgentred  $white      $purple
-#   }
+#        
+#    }
 #}

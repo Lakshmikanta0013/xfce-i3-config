@@ -104,7 +104,7 @@ height = 24
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background-trans}
 foreground = ${colors.foreground}
@@ -124,7 +124,7 @@ module-margin-right = 0
 ;################ Fonts ########################
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = Hack Nerd Font:style=Regular:pixelsize=12;1
+font-0 = Hack Nerd Font:style=Regular:pixelsize=11;1
 font-1 = Hack Nerd Font:style=Bold:pixelsize=14;2
 
 ;===============================================================================
@@ -195,39 +195,44 @@ ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
 ws-icon-8 = 9;
-ws-icon-default = i
-ws-icon-font = 2
+ws-icon-default = 
 
 format = <label-state> <label-mode>
 
-label-mode = %{T2}%mode%%{T-}
-label-mode-padding = 1
+label-mode = %{T2}%mode% 
+label-mode-padding-left = 1
+label-mode-padding-right = 1
 label-mode-background = ${colors.background-trans}
 
-label-focused = %{T2}%icon%%{T-}
+label-focused =%{T2}%icon%  
 label-focused-foreground = ${colors.background-trans}
 label-focused-background = ${colors.cyan}
-label-focused-padding = 1
+label-focused-padding-left = 1
+label-focused-padding-right = 1
 
-label-unfocused = %{T2}%icon%%{T-}
+label-unfocused = %{T2}%icon%  
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-background = ${colors.background-trans}
-label-unfocused-padding = 1
+label-unfocused-padding-left = 1
+label-unfocused-padding-right = 1
 
-label-visible = %{T2}%icon%%{T-}
+label-visible = %{T2}%icon% 
 label-visible-foreground = ${colors.foreground}
 label-visible-background = ${colors.background-trans}
-label-visible-padding = 1
+label-visible-padding-left = 1
+label-visible-padding-right = 1
 
-label-urgent = %{T2}%icon%%{T-}
+label-urgent = %{T2}%icon% 
 label-urgent-foreground = ${colors.background-trans}
 label-urgent-background = ${colors.red}
-label-urgent-padding = 1
+label-urgent-padding-left = 1
+label-urgent-padding-right = 1
 
 ; Separator in between workspaces
 ;label-separator = |
 ;label-separator-foreground = ${colors.cyan}
-;label-separator-padding = 0
+;label-seperator-padding-left = 1
+;label-seperator-padding-right = 1
 ;===================================================================================
 
 
@@ -399,7 +404,6 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-font = 2
 
 ; Only applies if <bar-capacity> is used
 bar-capacity-width = 10
@@ -410,7 +414,6 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-font = 2
 ; Framerate in milliseconds
 animation-charging-framerate = 750
 
@@ -421,7 +424,6 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-3 = 
 animation-discharging-4 = 
-animation-discharging-font = 2
 ; Framerate in milliseconds
 ;=================================================================================
 
@@ -467,7 +469,6 @@ format-prefix = ""
 format-prefix-background = ${colors.pink}
 format-prefix-foreground = ${colors.background}
 format-prefix-padding = 1
-format-prefix-font = 2
 
 label = %time%
 label-background = ${colors.background-alt}
@@ -481,14 +482,13 @@ type = internal/cpu
 interval = 1
 
 format-prefix = ""
-format-prefix-background = ${colors.orange}
+format-prefix-background = ${colors.cyan}
 format-prefix-foreground = ${colors.background}
-format-prefix-padding-left = 1
-format-prefix-font = 2
+format-prefix-padding = 1
 
 label = %{T1}%percentage:2%%%{T-}
-label-background = ${colors.orange}
-label-foreground = ${colors.background}
+label-background = ${colors.background-alt}
+label-foreground = ${colors.foreground}
 label-padding = 1
 label-underline = ${colors.cyan}
 ;===============================================================================
@@ -510,7 +510,6 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix = ""
-format-prefix-font = 2
 format-prefix-foreground = ${colors.background}
 format-prefix-background = ${colors.cyan}
 format-prefix-padding = 1
@@ -587,11 +586,10 @@ ramp-signal-5 = 😈
 [module/powermenu]
 type = custom/script
 tail = true
-exec = echo "⏻"
+exec = echo " ⏻ "
 label-background = ${colors.red}
 label-foreground = ${colors.background}
 label-padding = 1
-label-font = 2
 click-left = exec ~/.config/polybar/scripts/powermenu
 ;===============================================================================
 
@@ -608,7 +606,6 @@ label-muted = 婢 muted
 label-muted-background = ${colors.yellow}
 label-muted-foreground = #666
 label-muted-padding = 1
-label-muted-font = 2
 
 ; Only applies if <ramp-volume> is used
 ramp-volume-0 = 奄
@@ -619,7 +616,6 @@ ramp-volume-4 = 
 ramp-volume-background = ${colors.yellow}
 ramp-volume-foreground = ${colors.background}
 ramp-volume-padding = 1
-ramp-volume-font = 2
 
 ;Right and Middle click
 click-right = pavucontrol
@@ -670,13 +666,13 @@ format-disconnected = <label-disconnected>
 ;   %downspeed% [wireless+wired]
 ;   %linkspeed% [wired]
 
-label-connected = "%{A1:nm-connection-editor:} %essid%%{A}"
-label-connected-background = ${colors.tela}
+label-connected = "  %essid%%{A}"
+label-connected-background = ${colors.orange}
 label-connected-foreground = ${colors.background}
 label-connected-padding = 1
 
-label-disconnected = "%{A1:nm-connection-editor:}睊%{A}"
-label-disconnected-background = ${colors.tela}
+label-disconnected = "睊%{A}"
+label-disconnected-background = ${colors.pink}
 label-disconnected-foreground = ${colors.background}
 label-disconnected-padding = 1
 

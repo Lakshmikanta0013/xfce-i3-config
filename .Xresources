@@ -10,7 +10,7 @@
 
 !URxvt------------------------
 !URxvt.font: xtf:Source Code Pro:Regular:size=11
-URxvt.font: xft:Source Code Pro:size=11, xtf:Noto Color Emoji:size=12
+URxvt.font: xft:Hack Nerd Font:size=11, xtf:Noto Color Emoji:size=12
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24

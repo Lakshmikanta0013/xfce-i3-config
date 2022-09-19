@@ -189,11 +189,6 @@ alias push='git push origin'
 alias tag='git tag'
 alias newtag='git tag -a'
 
-# script to arch system maintaincence
-#To download this https://github.com/voider755/almh.git
-# arch user "yay -S almh-git"
-alias maintaincence='almh.py'
-
 #list all drive with UUID
 alias list_drive='lsblk -f'
 
@@ -213,11 +208,6 @@ alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose  --sort rate --sa
 alias mirrord="sudo reflector --latest 30 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --latest 30 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
 alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pacman.d/mirrorlist"
-
-#Recent Installed Packages
-# Download expac "sudo pacman -S expac"
-alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -20 | nl"
-alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
 
 #get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
@@ -242,6 +232,7 @@ alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
 
 #Edit config file for ricing
 alias ni3="$VISUAL ~/.config/i3/config"
+alias ni3blocks="$VISUAL ~/.config/i3/i3blocks.conf"
 alias npolybar="$VISUAL ~/.config/polybar/config"
 alias nkitty="$VISUAL ~/.config/kitty/kitty.conf"
 alias nalacritty="$VISUAL ~/.config/alacritty/alacritty.yml"
@@ -268,18 +259,6 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
 # the terminal rickroll
 alias rr='curl -s -L http://bit.ly/10hA8iC | bash'
-
-# youtube-dl
-alias yta-aac="youtube-dl --extract-audio --audio-format aac "
-alias yta-best="youtube-dl --extract-audio --audio-format best "
-alias yta-flac="youtube-dl --extract-audio --audio-format flac "
-alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
-alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
-alias yta-opus="youtube-dl --extract-audio --audio-format opus "
-alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
-alias yta-wav="youtube-dl --extract-audio --audio-format wav "
-alias ytv-best="youtube-dl -f bestvideo+bestaudio "
-
 
 ########################################################################
 ###############                   Styling                ###############

@@ -18,8 +18,8 @@ env:
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
-  LANG: "en_IN.UTF-8"
-  LC_CTYPE: en_IN.UTF-8
+  LANG: "en_US.UTF-8"
+  LC_CTYPE: en_US.UTF-8
 window:
   # Window dimensions (changes require restart)
   #
@@ -548,31 +548,29 @@ schemes:
   RoyalDark: &RoyalDark
    # Default colors
    primary:
-     background: '#1a1a1e'
+     background: '#212128'
      foreground: '#eeeef4'
 
    # Normal colors
    normal:
-     black:   '#212128'
+     black:   '#1a1a1e'
      red:     '#f24054'
      green:   '#40f260'
-     yellow:  '#f2f230'
-     blue:    '#7755f2'
+     yellow:  '#f2f260'
+     blue:    '#8060f2'
      magenta: '#f240f2'
-     cyan:    '#00e5ff'
-     tela:    '#30f0b2'
+     cyan:    '#00bcd4'
      white:   '#d0d0d0'
 
    #  Bright colors
    bright:
-     black:   '#56566c'
-     red:     '#f26c7b'
+     black:   '#404040'
+     red:     '#f28080'
      green:   '#80f280'
      yellow:  '#f2f280'
-     blue:    '#9282f2'
-     magenta: '#f284f2'
-     cyan:    '#80f2ff'
-     tela:    '#60f0b2'
+     blue:    '#a480f2'
+     magenta: '#f280c4'
+     cyan:    '#00e5ff'
      white:   '#eeeeee'
 
 ######################################################################
@@ -589,7 +587,7 @@ schemes:
 # *SolarizedLight
 # *SolarizedDark
 # *TomorrowNight
-# *RoyalDark
+#*RoyalDark
 
 colors: *RoyalDark
 
