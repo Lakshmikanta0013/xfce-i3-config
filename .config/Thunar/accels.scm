@@ -36,7 +36,6 @@
 ; (gtk_accel_path "<Actions>/ThunarLauncher/trash-delete" "Delete")
 ; (gtk_accel_path "<Actions>/ThunarWindow/sendto-menu" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/reload-alt" "F5")
-; (gtk_accel_path "<Actions>/ThunarBookmarks/3dade99ab74f410b3eacef23c6f6ca74" "")
 ; (gtk_accel_path "<Actions>/ThunarBookmarks/9a4dbaf2bb04c28102c15b2ff71e881e" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/zoom-out-alt" "<Primary>minus")
 ; (gtk_accel_path "<Actions>/ThunarBookmarks/8490251ce4fe6672f8601d7ff7b8d1fb" "")

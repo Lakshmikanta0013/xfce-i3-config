@@ -67,12 +67,12 @@ when = '[ "$STARSHIP_SHELL" == "bash" ]'
 
 # Indicates when in fish shell.
 [custom.fish]
-command = "echo : 🅵🅸🆂🅷"
+command = "echo : 🐠"
 when = 'test "$STARSHIP_SHELL" = "fish"'
 
 # Indicates when in zsh shell.
 [custom.zsh]
-command = "echo : 🆉🆂🅷"
+command = "echo : 🐉"
 when = 'test "$STARSHIP_SHELL" = "zsh"'
 
 # Indicates when in Nushell.

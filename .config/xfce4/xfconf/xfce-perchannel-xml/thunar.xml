@@ -22,7 +22,10 @@
   <property name="misc-directory-specific-settings" type="bool" value="true"/>
   <property name="misc-file-size-binary" type="bool" value="false"/>
   <property name="shortcuts-icon-size" type="string" value="THUNAR_ICON_SIZE_16"/>
-  <property name="misc-open-new-window-as-tab" type="bool" value="true"/>
+  <property name="misc-open-new-window-as-tab" type="bool" value="false"/>
   <property name="misc-show-delete-action" type="bool" value="true"/>
   <property name="misc-text-beside-icons" type="bool" value="true"/>
+  <property name="misc-recursive-permissions" type="string" value="THUNAR_RECURSIVE_PERMISSIONS_ALWAYS"/>
+  <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
+  <property name="last-details-view-column-widths" type="string" value="50,147,50,50,755,50,50,89,50,179"/>
 </channel>

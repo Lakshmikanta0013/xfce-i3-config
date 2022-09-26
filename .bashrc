@@ -13,8 +13,8 @@ export LANG
 
 ### EXPORT
 export TERM="xterm-256color"             # getting proper colors
-export EDITOR="nvim"                     # $EDITOR use NeoVim in terminal
-export VISUAL="nvim"                     # $VISUAL use NeoVim in GUI mode
+export EDITOR="lvim"                     # $EDITOR use NeoVim in terminal
+export VISUAL="lvim"                     # $VISUAL use NeoVim in GUI mode
 
 ### SET MANPAGER
 ### Uncomment only one of these!
@@ -24,9 +24,6 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 ### "vim" as manpager
 # export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
-
-### "nvim" as manpager
-# export MANPAGER="nvim -c 'set ft=man' -"
 
 ### SET VI MODE ###
 # Comment this line out to enable default emacs-like bindings
@@ -107,8 +104,8 @@ up () {
 ########################################################################
 
 #vim
-alias vim="nvim"
-alias svim="sudo nvim"
+alias vim="lvim"
+alias svim="sudo lvim"
 
 #Make a directory with parent-child
 alias mkdir="mkdir -p"
@@ -283,12 +280,11 @@ alias rr='curl -s -L http://bit.ly/10hA8iC | bash'
 #starship startup scripts
 eval "$(starship init bash)"
 
-# Set fish as default prompt
-exec fish
-
-
 #Customized start programe
-neofetch | lolcat
+neofetch --ascii ~/.config/neofetch/images/arch.txt 
 # fm6000 -random -color random
 # colorscript random
-sysinfo | lolcat
+
+
+# Set a default prompt
+exec zsh

@@ -39,7 +39,8 @@ set $browser firefox
 set $file thunar
 set $editor code
 set $note Mousepad
-set $photoViewer Ristretto
+set $photoViewer Eog
+set $vm Virt-manager
 
 ################# Define the movements keys - variables
 set $up Up
@@ -230,8 +231,8 @@ exec --no-startup-id numlockx on
 ### polybar Start Script
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 ### set wallpaper
-#exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id feh --bg-fill --randomize ~/.background/* &
+exec --no-startup-id sleep 2 && nitrogen --set-zoom-fill --random .background/ --save
+#exec --no-startup-id feh --bg-fill --randomize ~/.background/* &
 
 ### Desktop notifications
 # exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
@@ -296,7 +297,7 @@ bindsym $mod+Shift+r restart
 
 ################# menu's in archlinux
 # start dmenu
-bindsym $mod+d exec dmenu_run -h 24 -nb '#1a1e1e' -sf '#212128' -sb '#f24054' -nf '#00e5ff' -fn "Source Code Pro 10"
+bindsym $mod+d exec dmenu_run -nb '#1a1e1e' -sf '#212128' -sb '#f24054' -nf '#00e5ff' -fn "Hack Nerd Font 11"
 # rofi bindings
 bindsym $mod+p exec rofi -modi drun -show drun -config ~/.config/rofi/col_singlerow.rasi
 bindsym $mod+t exec rofi -modi window -show window -config ~/.config/rofi/rofidmenu.rasi
@@ -320,6 +321,10 @@ exec --no-startup-id source ~/.fehbg
 ### open new empty workspace
 bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 
+
+############# User Applications ############
+
+bindsym Mod1+Shift+C exec gcolor2
 
 ################# Moving around in i3  
 # change focus
@@ -365,14 +370,14 @@ bindsym $mod+Shift+c focus child
 ######################## Multimedia Keys
 
 # volume
-#bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-#bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-#bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
 
 ### Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pamixer -i 5 && dunstify -h string:x-dunst-stack-tag:volume volume: $(pamixer --get-volume)%
-bindsym XF86AudioLowerVolume exec pamixer -d 5 && dunstify -h string:x-dunst-stack-tag:volume volume: $(pamixer --get-volume)%
-bindsym XF86AudioMute exec pamixer -t && dunstify -h string:x-dunst-stack-tag:mute mute: $(pamixer --get-mute)!
+#bindsym XF86AudioRaiseVolume exec pamixer -i 5 && dunstify -h string:x-dunst-stack-tag:volume volume: $(pamixer --get-volume)%
+#bindsym XF86AudioLowerVolume exec pamixer -d 5 && dunstify -h string:x-dunst-stack-tag:volume volume: $(pamixer --get-volume)%
+#bindsym XF86AudioMute exec pamixer -t && dunstify -h string:x-dunst-stack-tag:mute mute: $(pamixer --get-mute)!
 
 ### play/pause keys
 bindsym XF86AudioPlay exec playerctl play
@@ -426,6 +431,7 @@ assign [class="Thunar|Pcmanfm"] $ws3
 assign [class="code-oss|Code|Subl|VSCodium|Geany|Atom"] $ws4
 assign [class="Gimp|kdenlive"] $ws8
 assign [class="vlc|libreoffice"] $ws6
+assign [class="$vm"] $ws5 
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Alacritty] focus
@@ -441,11 +447,13 @@ for_window [class=VSCodium] focus
 for_window [class=Atom] focus
 for_window [class=Gimp] focus
 for_window [class=kdenlive] focus
+for_window [class=$vm] focus
 
 ###################### system tray 
 
 # start blueberry app for managing bluetooth devices from tray:
-exec --no-startup-id blueberry-tray
+#exec --no-startup-id blueberry-tray
+exec --no-startup-id blueman-applet
 # networkmanager-applet
 exec --no-startup-id nm-applet
 # clipman-applet
@@ -453,7 +461,7 @@ exec --no-startup-id xfce4-clipman
 # Updater
 exec --no-startup-id pamac-tray
 # dropbox
-exec --no-startup-id dropbox start
+#exec --no-startup-id dropbox start
 # volume
 exec --no-startup-id volumeicon
 
@@ -466,6 +474,7 @@ for_window [floating_from="user"] border pixel 2
 for_window [class="Ristretto"] floating enable resize set 1024 640 
 for_window [class="__main__.py"] floating enable resize set 800 640 border normal
 for_window [class="Blueberry.py"] floating enable
+for_window [class="Blueman-manager"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable

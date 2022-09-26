@@ -139,7 +139,7 @@ separator =
 
 ;########## tray ######################
 
-tray-position = none
+tray-position = none 
 tray-padding = 2
 tray-background = ${colors.background-trans}
 tray-foreground = ${colors.foreground}
@@ -248,8 +248,8 @@ icon-0 = 1;
 icon-1 = 2;
 icon-2 = 3;
 icon-3 = 4;
-icon-4 = 5;
-icon-5 = 6;
+icon-4 = 5;廊
+icon-5 = 6;嗢
 icon-6 = 7;
 icon-7 = 8;
 icon-8 = 9;
@@ -431,7 +431,7 @@ animation-discharging-4 = 
 type = custom/script
 exec = ~/.config/polybar/scripts/bluetooth.sh
 interval = 2
-click-right = exec blueberry
+click-right = exec blueman-manager
 click-left = exec ~/.config/polybar/scripts/toggle_bluetooth.sh
 format-padding = 1
 format-background = ${colors.blue}
@@ -483,7 +483,7 @@ interval = 1
 
 format-prefix = ""
 format-prefix-background = ${colors.cyan}
-format-prefix-foreground = ${colors.background}
+format-prefix-foreground = ${colors.background-alt}
 format-prefix-padding = 1
 
 label = %{T1}%percentage:2%%%{T-}
@@ -542,7 +542,7 @@ label-underline = ${colors.purple}
 
 [module/network]
 type = internal/network
-interface = wlan0
+interface = wlp6s0
 interval = 1.0
 
 ; Available tags:
@@ -642,7 +642,7 @@ format-prefix-padding = 1
 
 [module/wifi]
 type = internal/network
-interface = wlan0
+interface = wlp6s0
 interval = 1.0
 
 ;##### run in terminal "nmtui" to get connected

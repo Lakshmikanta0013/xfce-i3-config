@@ -21,8 +21,8 @@ alias set-time ='timedatectl set-ntp true'
 ### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
 set TERM "xterm-256color"                         # Sets the terminal type
-set EDITOR "nvim"                                 # $EDITOR use Neovim in terminal
-set VISUAL "nvim"                                 # $VISUAL use your editor of choice in GUI mode
+set EDITOR "lvim"                                 # $EDITOR use Neovim in terminal
+set VISUAL "lvim"                                 # $VISUAL use your editor of choice in GUI mode
 
 ### PATH
 
@@ -111,8 +111,8 @@ end
 ########################################################################
 
 #vim
-alias vim="nvim"
-alias svim="sudo nvim"
+alias vim="lvim"
+alias svim="sudo lvim"
 
 #Make a directory with parent-child
 alias mkdir="mkdir -p"
@@ -160,6 +160,7 @@ alias yup='yay -Syu'
 alias pup='paru -Syu'
 alias yin='yay -S'
 alias pin='paru -S'
+alias search="paru"
 
 #Source config
 alias fsource='source ~/.config/fish/config.fish'
@@ -264,17 +265,7 @@ alias rr='curl -s -L http://bit.ly/10hA8iC | bash'
 ###############                   Styling                ###############
 ########################################################################
 
-### RANDOM COLOR SCRIPT ###
-# Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
-# Or install it from the Arch User Repository: shell-color-scripts
-  #colorscript random
-
-#Custimize scripts
-neofetch | lolcat
-  # figlet -c -f doom 'Lakshmikanta'
-  #fm6000 -random -color random
-
-end
-
 ##starship config
 starship init fish | source
+
+end

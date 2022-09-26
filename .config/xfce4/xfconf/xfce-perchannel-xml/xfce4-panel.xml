@@ -7,14 +7,14 @@
     <property name="dark-mode" type="bool" value="true"/>
     <property name="panel-1" type="empty">
       <property name="background-rgba" type="array">
-        <value type="double" value="0.247467"/>
-        <value type="double" value="0.247467"/>
-        <value type="double" value="0.290000"/>
+        <value type="double" value="0.152941"/>
+        <value type="double" value="0.152941"/>
+        <value type="double" value="0.341176"/>
         <value type="double" value="1.000000"/>
       </property>
       <property name="background-style" type="uint" value="1"/>
       <property name="enter-opacity" type="uint" value="100"/>
-      <property name="icon-size" type="uint" value="24"/>
+      <property name="icon-size" type="uint" value="0"/>
       <property name="leave-opacity" type="uint" value="100"/>
       <property name="length" type="uint" value="100"/>
       <property name="mode" type="uint" value="0"/>
@@ -22,6 +22,7 @@
         <value type="int" value="1"/>
         <value type="int" value="3"/>
         <value type="int" value="18"/>
+        <value type="int" value="23"/>
         <value type="int" value="15"/>
         <value type="int" value="4"/>
         <value type="int" value="17"/>
@@ -32,20 +33,22 @@
         <value type="int" value="21"/>
         <value type="int" value="2"/>
         <value type="int" value="5"/>
-        <value type="int" value="6"/>
         <value type="int" value="22"/>
+        <value type="int" value="25"/>
+        <value type="int" value="26"/>
+        <value type="int" value="24"/>
+        <value type="int" value="6"/>
         <value type="int" value="8"/>
         <value type="int" value="9"/>
         <value type="int" value="10"/>
-        <value type="int" value="23"/>
         <value type="int" value="11"/>
         <value type="int" value="12"/>
         <value type="int" value="13"/>
         <value type="int" value="7"/>
       </property>
-      <property name="position" type="string" value="p=8;x=683;y=753"/>
+      <property name="position" type="string" value="p=6;x=683;y=19"/>
       <property name="position-locked" type="bool" value="true"/>
-      <property name="size" type="uint" value="36"/>
+      <property name="size" type="uint" value="24"/>
     </property>
   </property>
   <property name="plugins" type="empty">
@@ -133,6 +136,7 @@
       </property>
       <property name="icon-size" type="int" value="0"/>
       <property name="known-items" type="array">
+        <value type="string" value="Bitwarden1"/>
         <value type="string" value="dropbox-client-1157"/>
         <value type="string" value="dropbox-client-11881"/>
         <value type="string" value="TelegramDesktop"/>
@@ -141,6 +145,16 @@
         <value type="string" value="blueman"/>
       </property>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “jiodongle” active: jiodongle (73%)"/>
+        <value type="string" value="blueman"/>
+        <value type="string" value="wi-fi network connection “jiodongle” active: jiodongle (75%)"/>
+        <value type="string" value="wi-fi network connection “jiodongle” active: jiodongle (93%)"/>
+        <value type="string" value="blueman-tray"/>
+        <value type="string" value="wi-fi network connection “jiodongle” active: jiodongle (67%)"/>
+        <value type="string" value="wi-fi network connection “jiodongle” active: jiodongle (99%)"/>
+        <value type="string" value="wi-fi network connection “k30” active: k30 (33%)"/>
+        <value type="string" value="msm notifier"/>
+        <value type="string" value="wi-fi network connection “k30” active: k30 (78%)"/>
         <value type="string" value="wi-fi network connection “k30” active: k30 (30%)"/>
         <value type="string" value="wi-fi network connection “k30” active: k30 (85%)"/>
         <value type="string" value="wi-fi network connection “jiodongle” active: jiodongle (97%)"/>
@@ -167,17 +181,26 @@
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="mixer-command" type="string" value="pavucontrol"/>
       <property name="show-notifications" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="firefox.instance1728"/>
     </property>
     <property name="plugin-9" type="string" value="power-manager-plugin"/>
-    <property name="plugin-22" type="string" value="launcher">
-      <property name="items" type="array">
-        <value type="string" value="16620855381.desktop"/>
-      </property>
-    </property>
     <property name="clipman" type="empty">
       <property name="tweaks" type="empty">
         <property name="never-confirm-history-clear" type="bool" value="false"/>
+        <property name="paste-on-activate" type="uint" value="1"/>
       </property>
     </property>
+    <property name="plugin-23" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16636518511.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-22" type="string" value="pager">
+      <property name="rows" type="uint" value="1"/>
+      <property name="miniature-view" type="bool" value="false"/>
+    </property>
+    <property name="plugin-24" type="string" value="separator"/>
+    <property name="plugin-25" type="string" value="separator"/>
+    <property name="plugin-26" type="string" value="netload"/>
   </property>
 </channel>

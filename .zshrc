@@ -16,8 +16,8 @@ export LC_CTYPE="en_IN.UTF-8"
 
 ###EXPORT
 export TERM="xterm-256color"             # getting proper colors
-export EDITOR="nvim"                     # $EDITOR use NeoVim in terminal
-export VISUAL="nvim"                     # $VISUAL use NeoVim in GUI mode
+export EDITOR="lvim"                     # $EDITOR use NeoVim in terminal
+export VISUAL="lvim"                     # $VISUAL use NeoVim in GUI mode
 
 export SUDO_EDITOR="nvim"
 alias "sudoedit"='function _sudoedit(){sudo -e "$1";};_sudoedit'
@@ -124,28 +124,25 @@ up () {
 ########################################################################
 
 #vim
-alias vim="nvim"
-alias svim="sudo nvim"
+alias vim="lvim"
+alias svim="sudo lvim"
 
 #Make a directory with parent-child
 alias mkdir="mkdir -p"
 
 # confirm before overwriting something
-alias cp="cp -i -r"
+alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
-alias scp='sudo cp'
-alias smv='sudo mv'
 
 #Custom Clear command
 alias clr='clear;colorscript random'
 
-#java runtime
-alias jar='java -jar'
-
 # fastboot sudo permition
 alias fastboot='sudo fastboot'
 
+#dd command
+alias dd='sudo dd bs=4M status=progress'
 # navigation
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -169,25 +166,21 @@ alias fgrep='fgrep --color=auto'
 alias pacins='sudo pacman -S'
 alias pacrmv='sudo pacman -R'
 alias pacrmv-d='sudo pacman -Rns'
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'             # remove orphaned packages
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)'   # remove orphaned packages
 alias parurmv='paru -Rns'
 alias pacup='sudo pacman -Syu'
 alias yup='yay -Syu'
 alias pup='paru -Syu'
 alias yin='yay -S'
 alias pin='paru -S'
+alias search="paru"
 
 #Source config
 alias fsource='source ~/.config/fish/config.fish'
 alias bsource='source ~/.bashrc'
-alias zsource='source ~/.zshrc'
 
-#wifi & bluetooth
+#wifi
 alias wifi="nmtui"
-alias blue="blueberry"
-
-#font listing
-alias flist='fc-list | grep'
 
 #chmod
 alias mod="sudo chmod +x"
@@ -209,13 +202,6 @@ alias pull='git pull origin'
 alias push='git push origin'
 alias tag='git tag'
 alias newtag='git tag -a'
-alias gemail='git config --global user.email'
-alias gname='git config --global user.name'
-
-# script to arch system maintaincence
-#To download this https://github.com/voider755/almh.git
-# arch user "yay -S almh-git"
-alias maintaincence='almh.py'
 
 #list all drive with UUID
 alias list_drive='lsblk -f'
@@ -227,20 +213,15 @@ alias wget="wget -c"
 alias userlist="cut -d: -f1 /etc/passwd"
 
 #grub update
-alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 
 #get fastest mirrors in your neighborhood
 # Download reflector "sudo pacman -S reflector"
-alias mirror="sudo reflector -f 30 -l 10 --number 10 --verbose  --sort rate --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 10 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 10 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
-alias mirrora="sudo reflector --latest 10 --number 10 --sort age --save /etc/pacman.d/mirrorlist"
-
-#Recent Installed Packages
-# Download expac "sudo pacman -S expac"
-alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -20 | nl"
-alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose  --sort rate --save /etc/pacman.d/mirrorlist"
+alias mirrord="sudo reflector --latest 30 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --latest 30 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
+alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pacman.d/mirrorlist"
 
 #get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
@@ -254,18 +235,18 @@ alias nconfgrub="sudo $EDITOR /boot/grub/grub.cfg"
 alias nmkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
 alias nmirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
 alias narcomirrorlist='sudo $EDITOR /etc/pacman.d/arcolinux-mirrorlist'
-alias nsddm="sudo -e /usr/lib/sddm/sddm.conf.d/default.conf"
-alias nfstab="sudo -e /etc/fstab"
+alias nsddm="sudo $EDITOR /usr/lib/sddm/sddm.conf.d/default.conf"
+alias nfstab="sudo $EDITOR /etc/fstab"
 alias nbash="$VISUAL ~/.bashrc"
 alias nzsh="$VISUAL ~/.zshrc"
 alias nfish="$VISUAL ~/.config/fish/config.fish"
-alias ndnf="EDITOR /etc/dnf/dnf.conf"
 alias nbspwm="$VISUAL ~/.config/bspwm/bspwmrc"
 alias nsxhkd="$VISUAL ~/.config/sxhkd/sxhkdrc"
 alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
 
-#Edit config file for riceing
+#Edit config file for ricing
 alias ni3="$VISUAL ~/.config/i3/config"
+alias ni3blocks="$VISUAL ~/.config/i3/i3blocks.conf"
 alias npolybar="$VISUAL ~/.config/polybar/config"
 alias nkitty="$VISUAL ~/.config/kitty/kitty.conf"
 alias nalacritty="$VISUAL ~/.config/alacritty/alacritty.yml"
@@ -293,31 +274,9 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 # the terminal rickroll
 alias rr='curl -s -L http://bit.ly/10hA8iC | bash'
 
-# youtube-dl
-alias yta-aac="youtube-dl --extract-audio --audio-format aac "
-alias yta-best="youtube-dl --extract-audio --audio-format best "
-alias yta-flac="youtube-dl --extract-audio --audio-format flac "
-alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
-alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
-alias yta-opus="youtube-dl --extract-audio --audio-format opus "
-alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
-alias yta-wav="youtube-dl --extract-audio --audio-format wav "
-alias ytv-best="youtube-dl -f bestvideo+bestaudio "
-
-
 ########################################################################
 ###############                   Styling                ###############
 ########################################################################
-
-### RANDOM COLOR SCRIPT ###
-# Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
-# Or install it from the Arch User Repository: shell-color-scripts
-# colorscript random
-
-#Custimize scripts
-  #neofetch
-  # figlet -c -f doom 'Lakshmikanta'
-  # fm6000 -random -color random
 
 #starship startup scripts
 eval "$(starship init zsh)"
