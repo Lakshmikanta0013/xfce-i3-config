@@ -18,8 +18,8 @@ env:
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
-  LANG: "en_US.UTF-8"
-  LC_CTYPE: en_US.UTF-8
+  LANG: "en_IN.UTF-8"
+  LC_CTYPE: en_IN.UTF-8
 window:
   # Window dimensions (changes require restart)
   #
@@ -95,7 +95,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: "Source Code Pro"
+    family: "Hack Nerd Font"
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
@@ -117,7 +117,7 @@ font:
     #style: Bold
     # Italic font face
     #italic:
-    family: Source Code Pro
+    family: Hack Nerd Font
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
@@ -133,7 +133,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Source Code Pro
+    family: Hack Nerd Font
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
@@ -149,7 +149,7 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Source Code Pro
+    family: Hack Nerd Font
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
@@ -160,7 +160,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 11.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -564,14 +564,14 @@ schemes:
 
    #  Bright colors
    bright:
-     black:   '#404040'
+     black:   '#56566c'
      red:     '#f28080'
      green:   '#80f280'
      yellow:  '#f2f280'
      blue:    '#a480f2'
      magenta: '#f280c4'
      cyan:    '#00e5ff'
-     white:   '#eeeeee'
+     white:   '#eeeef4'
 
 ######################################################################
 ## SET THEME: Choose ONE color scheme from those in the above list. ##

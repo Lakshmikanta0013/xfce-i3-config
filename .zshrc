@@ -37,7 +37,6 @@ esac
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source $HOME/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 ##############################################################################
 # History Configuration
@@ -122,6 +121,10 @@ up () {
 ########################################################################
 ###############               ALIASES            ###############
 ########################################################################
+
+### Mount Windows
+alias winmnt="sudo mount /dev/sda3 /mnt/hotSpot"
+alias winumnt= "sudo umount /mnt/hotSpot/"
 
 #vim
 alias vim="lvim"
@@ -245,7 +248,7 @@ alias nsxhkd="$VISUAL ~/.config/sxhkd/sxhkdrc"
 alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
 
 #Edit config file for ricing
-alias ni3="$VISUAL ~/.config/i3/config"
+alias ni3="$VISUAL ~/.i3/config"
 alias ni3blocks="$VISUAL ~/.config/i3/i3blocks.conf"
 alias npolybar="$VISUAL ~/.config/polybar/config"
 alias nkitty="$VISUAL ~/.config/kitty/kitty.conf"

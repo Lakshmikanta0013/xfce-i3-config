@@ -103,6 +103,10 @@ up () {
 ###############                 ALIASES                  ###############
 ########################################################################
 
+### Mount Windows
+alias winmnt="sudo mount /dev/sda3 /mnt/hotSpot"
+alias winumnt="sudo umount /mnt/hotSpot/"
+
 #vim
 alias vim="lvim"
 alias svim="sudo lvim"
@@ -245,7 +249,7 @@ alias nsxhkd="$VISUAL ~/.config/sxhkd/sxhkdrc"
 alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
 
 #Edit config file for ricing
-alias ni3="$VISUAL ~/.config/i3/config"
+alias ni3="$VISUAL ~/.i3/config"
 alias npolybar="$VISUAL ~/.config/polybar/config"
 alias nkitty="$VISUAL ~/.config/kitty/kitty.conf"
 alias nalacritty="$VISUAL ~/.config/alacritty/alacritty.yml"
