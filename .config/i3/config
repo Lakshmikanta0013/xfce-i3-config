@@ -39,7 +39,7 @@ set $browser firefox
 set $file thunar
 set $editor code
 set $note Mousepad
-set $photoViewer Eog
+set $photoViewer Xviewer
 set $vm Virt-manager
 
 ################# Define the movements keys - variables
@@ -80,49 +80,49 @@ new_window pixel 1
 # want it
 
 for_window [class="^.*"] border pixel 1
-gaps inner 2
-gaps outer 2
-# smart_gaps on
-# smart_borders on
-
-################# i3 gaps change                   
-
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+#gaps inner 2
+#gaps outer 2
+## smart_gaps on
+## smart_borders on
+#
+################## i3 gaps change                   
+#
+#set $mode_gaps Gaps: (o) outer, (i) inner
+#set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#bindsym $mod+Shift+g mode "$mode_gaps"
+#
+#mode "$mode_gaps" {
+#        bindsym o      mode "$mode_gaps_outer"
+#        bindsym i      mode "$mode_gaps_inner"
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
+#
+#mode "$mode_gaps_inner" {
+#        bindsym plus  gaps inner current plus 5
+#        bindsym minus gaps inner current minus 5
+#        bindsym 0     gaps inner current set 0
+#
+#        bindsym Shift+plus  gaps inner all plus 5
+#        bindsym Shift+minus gaps inner all minus 5
+#        bindsym Shift+0     gaps inner all set 0
+#
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
+#mode "$mode_gaps_outer" {
+#        bindsym plus  gaps outer current plus 5
+#        bindsym minus gaps outer current minus 5
+#        bindsym 0     gaps outer current set 0
+#
+#        bindsym Shift+plus  gaps outer all plus 5
+#        bindsym Shift+minus gaps outer all minus 5
+#        bindsym Shift+0     gaps outer all set 0
+#
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
 
 ################# Popups  control                  
 # Popups during fullscreen mode
@@ -223,7 +223,7 @@ exec_always picom -b --config ~/.config/picom/picom.conf
 
 exec --no-startup-id dex --autostart --environment i3
 #get auth work with polkit-gnome
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-1-gnome/polkit-gnome-authentication-agent-1
 ### num lock activated
 exec --no-startup-id numlockx on
 ### start conky:
@@ -439,7 +439,6 @@ for_window [class=Chromium] focus
 for_window [class=Thunar] focus
 for_window [class=Pcmanfm] focus
 for_window [class=Geany] focus
-for_window [class=code-oss] focus
 for_window [class=Code] focus
 for_window [class=Subl] focus
 for_window [class=VSCodium] focus
@@ -459,7 +458,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id clipit
 # Updater
-exec --no-startup-id pamac-tray
+exec --no-startup-id MintUpdate.py
 # dropbox
 #exec --no-startup-id dropbox start
 # volume
@@ -484,6 +483,7 @@ for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Xarchiver"] floating enable
 for_window [class="octopi"] floating enable
 for_window [class="Pamac-manager"] floating enable
+for_window [class="MintUpdate.py"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="easyeffects"] floating enable
 for_window [class="Rhythmbox"] floating enable
@@ -495,6 +495,7 @@ for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 for_window [class="Eog"] floating enable
+for_window [class="Xviewer"] floating enable
 for_window [class="Xfce4-taskmanager"] floating enable
 for_window [class="Xreader"] floating enable resize set 1024 720
 for_window [class="Engrampa"] floating enable
