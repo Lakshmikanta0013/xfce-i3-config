@@ -13,8 +13,8 @@ export LANG
 
 ### EXPORT
 export TERM="xterm-256color"             # getting proper colors
-export EDITOR="lvim"                     # $EDITOR use NeoVim in terminal
-export VISUAL="lvim"                     # $VISUAL use NeoVim in GUI mode
+export EDITOR="nvim"                     # $EDITOR use NeoVim in terminal
+export VISUAL="nvim"                     # $VISUAL use NeoVim in GUI mode
 
 ### SET MANPAGER
 ### Uncomment only one of these!
@@ -103,23 +103,31 @@ up () {
 ###############                 ALIASES                  ###############
 ########################################################################
 
-### Mount Windows
+#Node.Js
+alias snpm="sudo npm"
+
+  # Allow port for live-server
+alias open-port='sudo ufw allow from any to any port 5500 proto tcp'
+
+  ### Mount Windows
 alias winmnt="sudo mount /dev/sda3 /mnt/hotSpot"
 alias winumnt="sudo umount /mnt/hotSpot/"
 
 #vim
-alias vim="lvim"
-alias svim="sudo lvim"
+alias vim="$EDITOR"
+alias svim="sudo $EDITOR"
 
 #Make a directory with parent-child
 alias mkdir="mkdir -p"
 
 # confirm before overwriting something
-alias cp="cp -i -r"
+alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
-alias scp='sudo cp'
-alias smv='sudo mv'
+alias rmf='rm -rf'
+
+# hotSpot Drive
+alias hotSpot='cd /mnt/hotSpot/'  
 
 #Custom Clear command
 alias clr='clear;colorscript random'
@@ -129,6 +137,9 @@ alias jar='java -jar'
 
 # fastboot sudo permition
 alias fastboot='sudo fastboot'
+
+#dd command
+alias dd='sudo dd bs=4M status=progress'
 
 # navigation
 alias ..='cd ..'
@@ -243,26 +254,26 @@ alias nfstab="sudo $EDITOR /etc/fstab"
 alias nbash="$VISUAL ~/.bashrc"
 alias nzsh="$VISUAL ~/.zshrc"
 alias nfish="$VISUAL ~/.config/fish/config.fish"
-alias ndnf="EDITOR /etc/dnf/dnf.conf"
 alias nbspwm="$VISUAL ~/.config/bspwm/bspwmrc"
 alias nsxhkd="$VISUAL ~/.config/sxhkd/sxhkdrc"
 alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
 
 #Edit config file for ricing
-alias ni3="$VISUAL ~/.i3/config"
+alias ni3="$VISUAL ~/.config/i3/config"
+alias ni3blocks="$VISUAL ~/.config/i3/i3blocks.conf"
 alias npolybar="$VISUAL ~/.config/polybar/config"
 alias nkitty="$VISUAL ~/.config/kitty/kitty.conf"
 alias nalacritty="$VISUAL ~/.config/alacritty/alacritty.yml"
 alias npicom="$VISUAL ~/.config/picom/picom.conf"
 alias nxresources="$VISUAL ~/.Xresources"
 alias nstarship="$VISUAL ~/.config/starship.toml"
+alias nneofetch="$VISUAL ~/.config/neofetch/config.conf"
 #systeminfo
 alias probe="sudo -E hw-probe -all -upload"
 alias sysfailed="systemctl list-units --failed"
 
 #shutdown or reboot
 alias shutdown="sudo shutdown now"
-alias reboot="sudo reboot"
 
 #give the list of all installed desktops - xsessions desktops
 alias xd="ls /usr/share/xsessions"
@@ -291,4 +302,4 @@ neofetch --ascii ~/.config/neofetch/images/arch.txt
 
 
 # Set a default prompt
-exec zsh
+exec fish

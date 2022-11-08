@@ -38,8 +38,8 @@ set $terminal alacritty
 set $browser firefox
 set $file thunar
 set $editor code
-set $note Mousepad
-set $photoViewer Xviewer
+set $note Xed 
+set $photoViewer Eog
 set $vm Virt-manager
 
 ################# Define the movements keys - variables
@@ -80,49 +80,49 @@ new_window pixel 1
 # want it
 
 for_window [class="^.*"] border pixel 1
-#gaps inner 2
-#gaps outer 2
-## smart_gaps on
-## smart_borders on
-#
+gaps inner 2
+gaps outer 2
+smart_gaps on
+smart_borders on
+
 ################## i3 gaps change                   
-#
-#set $mode_gaps Gaps: (o) outer, (i) inner
-#set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-#set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-#bindsym $mod+Shift+g mode "$mode_gaps"
-#
-#mode "$mode_gaps" {
-#        bindsym o      mode "$mode_gaps_outer"
-#        bindsym i      mode "$mode_gaps_inner"
-#        bindsym Return mode "default"
-#        bindsym Escape mode "default"
-#}
-#
-#mode "$mode_gaps_inner" {
-#        bindsym plus  gaps inner current plus 5
-#        bindsym minus gaps inner current minus 5
-#        bindsym 0     gaps inner current set 0
-#
-#        bindsym Shift+plus  gaps inner all plus 5
-#        bindsym Shift+minus gaps inner all minus 5
-#        bindsym Shift+0     gaps inner all set 0
-#
-#        bindsym Return mode "default"
-#        bindsym Escape mode "default"
-#}
-#mode "$mode_gaps_outer" {
-#        bindsym plus  gaps outer current plus 5
-#        bindsym minus gaps outer current minus 5
-#        bindsym 0     gaps outer current set 0
-#
-#        bindsym Shift+plus  gaps outer all plus 5
-#        bindsym Shift+minus gaps outer all minus 5
-#        bindsym Shift+0     gaps outer all set 0
-#
-#        bindsym Return mode "default"
-#        bindsym Escape mode "default"
-#}
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 
 ################# Popups  control                  
 # Popups during fullscreen mode
@@ -222,31 +222,19 @@ exec_always picom -b --config ~/.config/picom/picom.conf
 ################## autostart applications/services on login
 
 exec --no-startup-id dex --autostart --environment i3
-#get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-1-gnome/polkit-gnome-authentication-agent-1
-### num lock activated
 exec --no-startup-id numlockx on
-### start conky:
-#exec_always --no-startup-id conky
-#exec --no-startup-id start_conky_maia
-### polybar Start Script
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-### set wallpaper
-exec --no-startup-id sleep 2 && nitrogen --set-zoom-fill --random .background/ --save
-#exec --no-startup-id feh --bg-fill --randomize ~/.background/* &
+
+#wallpaper Applicaton
+#exec --no-startup-id sleep 2 && nitrogen --set-zoom-fill --random .background/ --save
+exec --no-startup-id feh --bg-fill --randomize ~/.background/* &
 
 ### Desktop notifications
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
-# alternative if you installed aside with XFCE4:
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
-
 exec --no-startup-id clipit
 
-### autotiling script
-# https://github.com/nwg-piotr/autotiling
-#yay -S autotiling ;) (it is in AUR)
 exec_always --no-startup-id autotiling
-### Power Manager
 exec --no-startup-id xfce4-power-manager &
 ############ Autostart apps 
 exec --no-startup-id sleep 1 && $terminal
@@ -306,6 +294,8 @@ bindsym $mod+d exec dmenu_run -nb '#1a1e1e' -sf '#212128' -sb '#f24054' -nf '#00
 bindsym $mod+p exec rofi -modi drun -show drun -config ~/.config/rofi/col_singlerow.rasi
 bindsym $mod+t exec rofi -modi window -show window -config ~/.config/rofi/rofidmenu.rasi
 
+bindsym control+Shift+space exec rofi -modi emoji -show emoji -kb-custom-1 Ctrl+C -emoji-mode insert -emoji-format '{emoji}' -config .config/rofi/emoji-selector.rasi
+
 ############### i3 scripts 
 
 ### exit menu 
@@ -326,7 +316,7 @@ bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 
 ############# User Applications ############
 
-bindsym Mod1+Shift+C exec gcolor2
+bindsym Mod1+Shift+C exec gcolor3
 
 ################# Moving around in i3  
 # change focus
@@ -433,19 +423,19 @@ assign [class="vlc|libreoffice"] $ws6
 assign [class="$vm"] $ws5 
 
 # automatic set focus new window if it opens on another workspace then the current:
-for_window [class=Alacritty] focus
-for_window [class=firefox] focus
-for_window [class=Chromium] focus
-for_window [class=Thunar] focus
-for_window [class=Pcmanfm] focus
-for_window [class=Geany] focus
-for_window [class=Code] focus
-for_window [class=Subl] focus
-for_window [class=VSCodium] focus
-for_window [class=Atom] focus
-for_window [class=Gimp] focus
-for_window [class=kdenlive] focus
-for_window [class=$vm] focus
+#for_window [class=Alacritty] focus
+#for_window [class=firefox] focus
+#for_window [class=Chromium] focus
+#for_window [class=Thunar] focus
+#for_window [class=Pcmanfm] focus
+#for_window [class=Geany] focus
+#for_window [class=Code] focus
+#for_window [class=Subl] focus
+#for_window [class=VSCodium] focus
+#for_window [class=Atom] focus
+#for_window [class=Gimp] focus
+#for_window [class=kdenlive] focus
+#for_window [class=$vm] focus
 
 ###################### system tray 
 
@@ -454,15 +444,8 @@ for_window [class=$vm] focus
 exec --no-startup-id blueman-applet
 # networkmanager-applet
 exec --no-startup-id nm-applet
-# clipman-applet
-exec --no-startup-id xfce4-clipman
-exec --no-startup-id clipit
-# Updater
-exec --no-startup-id MintUpdate.py
 # dropbox
 #exec --no-startup-id dropbox start
-# volume
-exec --no-startup-id volumeicon
 
 ####################################
 ########   floating rules    #######
@@ -505,6 +488,7 @@ for_window [class="whatsapp-nativefier-d40211"] floating enable
 for_window [class="xdman-Main"] floating enable
 for_window [class="Notepadqq"] floating enable
 for_window [class="Mousepad"] floating enable
+for_window [class="Xed"] floating enable
 for_window [class="Gedit"] floating enable resize set 960 640
 
 for_window [title="i3_help"] floating enable sticky enable border normal

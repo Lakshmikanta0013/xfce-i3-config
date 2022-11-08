@@ -21,8 +21,8 @@ alias set-time ='timedatectl set-ntp true'
 ### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
 set TERM "xterm-256color"                         # Sets the terminal type
-set EDITOR "lvim"                                 # $EDITOR use Neovim in terminal
-set VISUAL "lvim"                                 # $VISUAL use your editor of choice in GUI mode
+set EDITOR "nvim"                                 # $EDITOR use Neovim in terminal
+set VISUAL "nvim"                                 # $VISUAL use your editor of choice in GUI mode
 
 ### PATH
 
@@ -110,13 +110,19 @@ end
 ###############               ALIASES            ###############
 ########################################################################
 
-### Mount Windows
+#Node.Js
+alias snpm="sudo npm"
+  
+# Allow port for live-server
+alias open-port='sudo ufw allow from any to any port 5500 proto tcp'
+
+  ### Mount Windows
 alias winmnt="sudo mount /dev/sda3 /mnt/hotSpot"
 alias winumnt= "sudo umount /mnt/hotSpot/"
 
 #vim
-alias vim="lvim"
-alias svim="sudo lvim"
+alias vim="$EDITOR"
+alias svim="sudo $EDITOR"
 
 #Make a directory with parent-child
 alias mkdir="mkdir -p"
@@ -125,15 +131,23 @@ alias mkdir="mkdir -p"
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
+alias rmf='rm -rf'
+
+# hotSpot Drive
+alias hotSpot='cd /mnt/hotSpot/'  
 
 #Custom Clear command
 alias clr='clear;colorscript random'
+
+#java runtime
+alias jar='java -jar'
 
 # fastboot sudo permition
 alias fastboot='sudo fastboot'
 
 #dd command
 alias dd='sudo dd bs=4M status=progress'
+
 # navigation
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -169,9 +183,14 @@ alias search="paru"
 #Source config
 alias fsource='source ~/.config/fish/config.fish'
 alias bsource='source ~/.bashrc'
+alias zsource='source ~/.zshrc'
 
-#wifi
+#wifi & bluetooth
 alias wifi="nmtui"
+alias blue="blueberry"
+
+#font listing
+alias flist='fc-list | grep'
 
 #chmod
 alias mod="sudo chmod +x"
@@ -193,6 +212,8 @@ alias pull='git pull origin'
 alias push='git push origin'
 alias tag='git tag'
 alias newtag='git tag -a'
+alias gemail='git config --global user.email'
+alias gname='git config --global user.name'
 
 #list all drive with UUID
 alias list_drive='lsblk -f'
@@ -236,7 +257,7 @@ alias nsxhkd="$VISUAL ~/.config/sxhkd/sxhkdrc"
 alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
 
 #Edit config file for ricing
-alias ni3="$VISUAL ~/.i3/config"
+alias ni3="$VISUAL ~/.config/i3/config"
 alias ni3blocks="$VISUAL ~/.config/i3/i3blocks.conf"
 alias npolybar="$VISUAL ~/.config/polybar/config"
 alias nkitty="$VISUAL ~/.config/kitty/kitty.conf"
@@ -251,7 +272,6 @@ alias sysfailed="systemctl list-units --failed"
 
 #shutdown or reboot
 alias shutdown="sudo shutdown now"
-alias reboot="sudo reboot"
 
 #give the list of all installed desktops - xsessions desktops
 alias xd="ls /usr/share/xsessions"
@@ -264,6 +284,7 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
 # the terminal rickroll
 alias rr='curl -s -L http://bit.ly/10hA8iC | bash'
+
 
 ########################################################################
 ###############                   Styling                ###############

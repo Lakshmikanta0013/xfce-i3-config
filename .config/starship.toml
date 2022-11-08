@@ -25,7 +25,7 @@ style = "bold #f2f260"
 
 [git_branch]
 format = " [$symbol$branch]($style) "
-symbol = "🍣 "
+symbol = "🐙 "
 style = "bold #f240f2"
 
 [git_commit]

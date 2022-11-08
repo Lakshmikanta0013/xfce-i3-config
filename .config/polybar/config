@@ -139,7 +139,7 @@ separator =
 
 ;########## tray ######################
 
-tray-position = none 
+tray-position = right 
 tray-padding = 2
 tray-background = ${colors.background-trans}
 tray-foreground = ${colors.foreground}

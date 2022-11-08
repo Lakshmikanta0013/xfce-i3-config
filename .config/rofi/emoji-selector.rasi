@@ -9,11 +9,11 @@
 
 
 configuration {
-	font:							"Iosevka Nerd Font 10";
-    show-icons:                     true;
-	  icon-theme: 					"Papirus";
-    display-drun: 					"Applications";
-    drun-display-format:            "{name}";
+	font:							"Hack Nerd Font 15";
+    show-icons:                     false;
+	icon-theme: 					"Papirus";
+    display-emoji: 					"Emoji";
+    emoji-display-format:            "{name}";
     disable-history:                false;
     fullscreen:                     false;
 	hide-scrollbar: 				true;
@@ -58,10 +58,10 @@ window {
     transparency:                   "real";
     background-color:               @bg;
     text-color:                     @fg;
-	border:							2px 5px;
+	border:							1px 5px;
 	border-color:					@ac;
     border-radius:                  10px;
-	width:							55%;
+	width:							30%;
     location:                       center;
     x-offset:                       0;
     y-offset:                       -5%;
@@ -77,19 +77,20 @@ scrollbar{
 
 prompt {
     enabled: 						true;
-	padding: 						1% 0.75% 1% 0.75%;
+	padding: 						1.25% 0.75% 1% 0.75%;
 	background-color: 				@ac;
 	text-color: 					@fg;
     border-radius:                  6px;
-	font:							"Iosevka Nerd Font 12";
+	font:							"Hack Nerd Font 10";
 }
 
 textbox-prompt-colon {
-	padding: 						1% 0% 1% 0%;
+	padding: 						1.5% 0 1% 1%;
 	background-color: 				@se;
-	text-color: 					@fg;
+	text-color: 					#5aff00ff;
 	expand: false;
-	str: " :: ";
+	str:                            " ⏭ ";
+    font:							"Hack Nerd Font 12";
 }
 
 entry {
@@ -99,8 +100,9 @@ entry {
     expand:                         true;
     horizontal-align:               0;
     placeholder:                    "Search...";
-	padding: 						1.15% 0.5% 1% 0.5%;
+	padding: 						1.5% 0.75% 1% 0;
     blink:                          true;
+    font:							"Hack Nerd Font 10";
 }
 
 inputbar {
@@ -108,16 +110,16 @@ inputbar {
     background-color:               @se;
     text-color:                     @fg;
     expand:                         false;
-	border:							0% 0% 0% 0%;
+	border:							0;
     border-radius:                  0px;
 	border-color:					@ac;
 }
 
 listview {
     background-color:               @al;
-    padding:                        0px;
-    columns:                        4;
-    lines:                          5;
+    padding:                        0;
+    columns:                        5;
+    lines:                          7;
     spacing:                       	0.5%;
     cycle:                          true;
     dynamic:                        true;
@@ -126,8 +128,8 @@ listview {
 
 mainbox {
     background-color:               @al;
-	border:							0% 0% 0% 0%;
-    border-radius:                  0% 0% 0% 0%;
+	border:							0;
+    border-radius:                  0;
 	border-color:					@ac;
     children:                       [ inputbar, listview ];
     spacing:                       	1%;
@@ -135,11 +137,11 @@ mainbox {
 }
 
 element {
-    background-color:               @se;
+    background-color:               @ac;
     text-color:                     @fg;
     orientation:                    horizontal;
     border-radius:                  6px;
-    padding:                        1% 0.5% 1% 0.75%;
+    padding:                        1% 0.5% 1% 1%;
 }
 
 element-icon {
@@ -148,7 +150,7 @@ element-icon {
 }
 
 element-text {
-    expand:                         true;
+    expand:                         false;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
 }
@@ -156,7 +158,7 @@ element-text {
 element selected {
     background-color:               @se;
     text-color:                     @ac;
-	border:							0% 0.25% 0% 0.25%;
-    border-radius:                  8px;
+	border:							0;
+    border-radius:                  6px;
     border-color:                  	@ac;
 }
