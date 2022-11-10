@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
 <action>
+	<icon>preferences-system-search</icon>
+	<name>Catfish Search</name>
+	<unique-id>1668058875477988-5</unique-id>
+	<command>catfish --hidden %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
 	<icon>utilities-terminal</icon>
 	<name>Open Terminal Here</name>
 	<unique-id>1488955845049151-1</unique-id>
@@ -9,18 +18,6 @@
 	<patterns>*</patterns>
 	<startup-notify/>
 	<directories/>
-</action>
-<action>
-	<icon>visual-studio-code</icon>
-	<name>Open in VS-Code</name>
-	<unique-id>1664503744635085-1</unique-id>
-	<command>code -a .</command>
-	<description>Open file or folder in VS-Code text editor</description>
-	<patterns>*</patterns>
-	<startup-notify/>
-	<directories/>
-	<other-files/>
-	<text-files/>
 </action>
 <action>
 	<icon>im-ban-user</icon>
@@ -32,44 +29,31 @@
 	<directories/>
 </action>
 <action>
-	<icon>accessories-notes</icon>
-	<name>Copy Contents to Clipboard</name>
-	<unique-id>1643991747749309-1</unique-id>
-	<command>cat &quot;%F&quot; | xclip -i -selection clipboard</command>
-	<description>Copies the contents of the selected file to the clipboard.</description>
+	<icon>visual-studio-code-insiders</icon>
+	<name>Open with VSCode</name>
+	<unique-id>1668058579591948-4</unique-id>
+	<command>code %f</command>
+	<description>open file in Visual Studio Code</description>
 	<patterns>*</patterns>
+	<other-files/>
 	<text-files/>
 </action>
 <action>
-	<icon>system-users</icon>
-	<name>Ownership to user</name>
-	<unique-id>1526631178674034-9</unique-id>
-	<command>gnome-keyring-daemon -r -d;gksu &quot;chown -R $USER:$USER %F&quot;</command>
-	<description>Change permissions to user</description>
+	<icon>visual-studio-code</icon>
+	<name>Open in VS-Code</name>
+	<unique-id>1664503744635085-1</unique-id>
+	<command>code -a .</command>
+	<description>Open file or folder in VS-Code text editor</description>
 	<patterns>*</patterns>
+	<startup-notify/>
 	<directories/>
-	<audio-files/>
-	<image-files/>
-	<other-files/>
-	<text-files/>
-	<video-files/>
 </action>
 <action>
-	<icon>aplication-x-executable</icon>
-	<name>Make executable</name>
-	<unique-id>1526670239648084-2</unique-id>
-	<command>sudo chmod +x %f</command>
-	<description>Make a file execuble</description>
-	<patterns>*</patterns>
-	<other-files/>
-	<text-files/>
-</action>
-<action>
-	<icon>folder-black-drag-accept</icon>
-	<name>Flatten Folder</name>
-	<unique-id>1643991884512949-2</unique-id>
-	<command>find . -mindepth 2 -type f -exec mv &quot;{}&quot; . \; &amp;&amp; find . -type d -empty -delete</command>
-	<description>Moves all files from sub-folders to parent (current) folder, then removes all empty folders inside the current folder.</description>
+	<icon>xfce4-fsguard-plugin-warning</icon>
+	<name>Delete Directory</name>
+	<unique-id>1668057146496900-2</unique-id>
+	<command>rm -rf %f</command>
+	<description></description>
 	<patterns>*</patterns>
 	<directories/>
 </action>
