@@ -16,7 +16,7 @@ disabled = false
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                         # The name of the module we are configuring is "character"
-success_symbol = "[  ➜](bold #40f260)"  # The "success_symbol" is set to "➜" with color "bold green"
+success_symbol = "[  ➜](bold #30f0b2)"  # The "success_symbol" is set to "➜" with color "bold green"
 error_symbol = "[  ➜](bold #f24054)"      # used if previous command failed
 
 ########### Dracula Color  ################
@@ -67,13 +67,16 @@ when = '[ "$STARSHIP_SHELL" == "bash" ]'
 
 # Indicates when in fish shell.
 [custom.fish]
-command = "echo : 🐠"
+command = "echo : 🅵🅸🆂🅷"
 when = 'test "$STARSHIP_SHELL" = "fish"'
+style = "bold #40f260"
 
 # Indicates when in zsh shell.
 [custom.zsh]
-command = "echo : 🐉"
+command = "echo : 🆉🆂🅷"
 when = 'test "$STARSHIP_SHELL" = "zsh"'
+style = "bold #f2f260"
+
 
 # Indicates when in Nushell.
 [custom.nu]
@@ -113,14 +116,14 @@ style = "bold #f2f260"
 [directory]
 truncation_length = 3
 truncation_symbol = "…/"
-format = "[ $path]($style)[ $read_only]($read_only_style)[ ](#40f260)"
-style = "bg:#40f260 fg:#212128"
+format = "[ $path]($style)[ $read_only]($read_only_style)[ ](#f2f280)"
+style = "bg:#f2f280 fg:#212128"
 read_only = "🔒"
-read_only_style = "bg:#40f260 fg:#1a1a1e"
+read_only_style = "bg:#f2f280 fg:#1a1a1e"
 
 [username]
 style_root = "bold bg:#f240f2 fg:212128"
-format = "[ $user]($style)[](bg:#40f260 fg:#f24054)"
+format = "[ $user]($style)[](bg:#f2f280 fg:#f24054)"
 #format = "[$user]($style) on "
 style_user = "bold bg:#f24054 fg:#212128"
 disabled = false

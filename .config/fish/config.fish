@@ -111,7 +111,7 @@ end
 ########################################################################
 
 #Node.Js
-alias snpm="sudo npm"
+alias npm="sudo npm"
   
 # Allow port for live-server
 alias open-port='sudo ufw allow from any to any port 5500 proto tcp'

@@ -221,21 +221,22 @@ exec_always picom -b --config ~/.config/picom/picom.conf
 
 ################## autostart applications/services on login
 
-exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id /usr/lib/polkit-1-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id numlockx on
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id dex --autostart --environment i3 &
+exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit &
+exec --no-startup-id numlockx on &
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 #wallpaper Applicaton
 #exec --no-startup-id sleep 2 && nitrogen --set-zoom-fill --random .background/ --save
-exec --no-startup-id feh --bg-fill --randomize ~/.background/* &
+#exec --no-startup-id feh --bg-fill --randomize /usr/share/backgrounds/fantacy/* &
+exec --no-startup-id betterlockscreen -w dim 
 
 ### Desktop notifications
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 exec --no-startup-id clipit
 
 exec_always --no-startup-id autotiling
-exec --no-startup-id xfce4-power-manager &
+exec_always --no-startup-id xfce4-power-manager
 ############ Autostart apps 
 exec --no-startup-id sleep 1 && $terminal
 #exec --no-startup-id sleep 2 && $browser
@@ -316,7 +317,7 @@ bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 
 ############# User Applications ############
 
-bindsym Mod1+Shift+C exec gcolor3
+bindsym Mod1+Shift+C exec gcolor2
 
 ################# Moving around in i3  
 # change focus
@@ -362,14 +363,14 @@ bindsym $mod+Shift+c focus child
 ######################## Multimedia Keys
 
 # volume
-#bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-#bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-#bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ 
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- 
+bindsym XF86AudioMute exec amixer sset Master toggle 
 
 ### Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pamixer -i 5 
-bindsym XF86AudioLowerVolume exec pamixer -d 5 
-bindsym XF86AudioMute exec pamixer -t && dunstify -h string:x-dunst-stack-tag:mute mute: $(pamixer --get-mute)!
+#bindsym XF86AudioRaiseVolume exec pamixer -i 5 
+#bindsym XF86AudioLowerVolume exec pamixer -d 5 
+#bindsym XF86AudioMute exec pamixer -t && dunstify -h string:x-dunst-stack-tag:mute mute: $(pamixer --get-mute)!
 
 ### play/pause keys
 bindsym XF86AudioPlay exec playerctl play
@@ -415,10 +416,10 @@ set $ws10 "10"
 
 ### assign applications to workspaces
 assign [class="Alacritty|kitty"] $ws1
-assign [class="firefox|Google-chrome|Chromium"] $ws2
-assign [class="Thunar|Pcmanfm"] $ws3
+assign [class="firefox|Google-chrome|Chromium"] $ws3
+assign [class="Thunar|Pcmanfm"] $ws2
 assign [class="code-oss|Code|Subl|VSCodium|Geany|Atom"] $ws4
-assign [class="Gimp|kdenlive"] $ws8
+assign [class="Gimp|kdenlive|figma-linux"] $ws8
 assign [class="vlc|libreoffice"] $ws6
 assign [class="$vm"] $ws5 
 
@@ -489,6 +490,7 @@ for_window [class="xdman-Main"] floating enable
 for_window [class="Notepadqq"] floating enable
 for_window [class="Mousepad"] floating enable
 for_window [class="Xed"] floating enable
+for_window [class="gcolor2"] floating enable
 for_window [class="Gedit"] floating enable resize set 960 640
 
 for_window [title="i3_help"] floating enable sticky enable border normal
