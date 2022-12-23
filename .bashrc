@@ -38,7 +38,10 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # This is commented out if using starship prompt
 # PS1='[\u@\h \W]\$ '
 
-
+# pnpm
+export PNPM_HOME="/home/lakshmi/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
 ### CHANGE TITLE OF TERMINALS
 case ${TERM} in
   xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|alacritty|st|konsole*)
@@ -303,3 +306,5 @@ neofetch --ascii ~/.config/neofetch/images/arch.txt
 
 # Set a default prompt
 exec fish
+
+

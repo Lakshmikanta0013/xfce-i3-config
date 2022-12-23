@@ -26,7 +26,7 @@ style = "bold #f2f260"
 [git_branch]
 format = " [$symbol$branch]($style) "
 symbol = "🐙 "
-style = "bold #f240f2"
+style = "#30f0b2"
 
 [git_commit]
 commit_hash_length = 8

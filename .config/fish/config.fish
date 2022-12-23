@@ -110,9 +110,13 @@ end
 ###############               ALIASES            ###############
 ########################################################################
 
+
+  #XAMPP live-server
+  alias xampp='sudo xampp'
+
 #Node.Js
-alias npm="sudo npm"
-  
+alias snpm="sudo npm"
+alias pn='pnpm'  
 # Allow port for live-server
 alias open-port='sudo ufw allow from any to any port 5500 proto tcp'
 
