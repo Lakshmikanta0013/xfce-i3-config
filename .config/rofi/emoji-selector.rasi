@@ -9,7 +9,7 @@
 
 
 configuration {
-	font:							"Hack Nerd Font 15";
+	font:							"Fira Code 16";
     show-icons:                     false;
 	icon-theme: 					"Papirus";
     display-emoji: 					"Emoji";

@@ -28,7 +28,7 @@
 ################################################################################
 
 # Font for window titles.
-font pango:Hack Nerd Font 10
+font pango:Fira Code 12
 
 # set the mod key to the winkey:
 set $mod Mod4
@@ -290,7 +290,7 @@ bindsym $mod+Shift+r restart
 
 ################# menu's in archlinux
 # start dmenu
-bindsym $mod+d exec dmenu_run -nb '#1a1e1e' -sf '#212128' -sb '#f24054' -nf '#00e5ff' -fn "Hack Nerd Font 11"
+bindsym $mod+d exec dmenu_run -nb '#1a1e1e' -sf '#212128' -sb '#f24054' -nf '#00e5ff' -fn "Fira Code 12"
 # rofi bindings
 bindsym $mod+p exec rofi -modi drun -show drun -config ~/.config/rofi/col_singlerow.rasi
 bindsym $mod+t exec rofi -modi window -show window -config ~/.config/rofi/rofidmenu.rasi
@@ -384,6 +384,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease
 
 ######################## App shortcuts
 bindsym $mod+b exec $browser;focus
+bindsym $mod+Shift+w exec chromium;focus
 bindsym $mod+e exec $file;focus
 bindsym $mod+n exec $note
 bindsym Insert exec "scrot ~/Pictures/%Y-%m-%d-%T-scr.png"
@@ -403,7 +404,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws0 "10"
 
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
@@ -416,12 +417,13 @@ set $ws10 "10"
 
 ### assign applications to workspaces
 assign [class="Alacritty|kitty"] $ws1
-assign [class="firefox|Google-chrome|Chromium"] $ws3
+assign [class="firefox"] $ws3
 assign [class="Thunar|Pcmanfm"] $ws2
 assign [class="code-oss|Code|Subl|VSCodium|Geany|Atom"] $ws4
 assign [class="Gimp|kdenlive|figma-linux|Inkscape"] $ws8
 assign [class="vlc|libreoffice"] $ws6
 assign [class="$vm"] $ws5 
+assign [class="Chromium"] $ws5
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Alacritty] focus

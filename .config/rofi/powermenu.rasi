@@ -3,7 +3,7 @@
  * Maintainer: joekamprad <joekamprad@endeavouros.com>
  *******************************************************/
 configuration {
-    font:                           "Sourcecode Pro Regular 11";
+    font:                           "Fira Code 12";
     show-icons:                     false;
     icon-theme: 		                "Papirus Dark";
     scroll-method:                  0;

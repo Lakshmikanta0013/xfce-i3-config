@@ -9,7 +9,7 @@
 
 
 configuration {
-	font:							"Iosevka Nerd Font 10";
+	font:							"Fira Code 12";
     show-icons:                     true;
 	  icon-theme: 					"Papirus";
     display-drun: 					"Applications";
