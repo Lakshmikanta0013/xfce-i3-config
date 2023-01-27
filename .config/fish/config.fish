@@ -171,6 +171,19 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
+#pacman command
+#alias pacins='sudo pacman -S'
+#alias pacrmv='sudo pacman -R'
+#alias pacrmv-d='sudo pacman -Rns'
+#alias cleanup='sudo pacman -Rns (pacman -Qtdq)'             # remove orphaned packages
+#alias parurmv='paru -Rns'
+#alias pacup='sudo pacman -Syu'
+#alias yup='yay -Syu'
+#alias pup='paru -Syu'
+#alias yin='yay -S'
+#alias pin='paru -S'
+#alias search="paru"
+
 #dnf command
 alias pacins='sudo dnf install'
 alias pacrmv='sudo dnf remove --noautoremove'
@@ -228,6 +241,7 @@ alias userlist="cut -d: -f1 /etc/passwd"
 
 #grub update
 alias grub-update="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
+#alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 #get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
