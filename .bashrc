@@ -16,6 +16,11 @@ export TERM="xterm-256color"             # getting proper colors
 export EDITOR="nvim"                     # $EDITOR use NeoVim in terminal
 export VISUAL="nvim"                     # $VISUAL use NeoVim in GUI mode
 
+### NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 ### SET MANPAGER
 ### Uncomment only one of these!
 
@@ -41,6 +46,8 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # pnpm
 export PNPM_HOME="/home/lakshmi/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin/"
 # pnpm end
 ### CHANGE TITLE OF TERMINALS
 case ${TERM} in
@@ -296,15 +303,15 @@ alias rr='curl -s -L http://bit.ly/10hA8iC | bash'
 ########################################################################
 
 #starship startup scripts
-eval "$(starship init bash)"
+#eval "$(starship init bash)"
 
 #Customized start programe
-neofetch --ascii ~/.config/neofetch/images/arch.txt 
+#neofetch --ascii ~/.config/neofetch/images/redhat.txt 
 # fm6000 -random -color random
 # colorscript random
 
 
 # Set a default prompt
-exec fish
+exec zsh
 
 

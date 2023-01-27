@@ -34,18 +34,27 @@ set fish_color_error '#f24054'
 set fish_color_param '#d0d0d0'
 
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
+
+#### NVM ########
+alias nvm="bass source ~/.nvm/nvm.sh --no-use ';' nvm "
+
 ########################################################################
 ###############                 FUNCTION                 ###############
 ########################################################################
 
+##### make directory and CD into folder #########
 function mkdir-cd
     mkdir -p -- $argv && cd -- $argv
 end
 
+######## MOVE#######
 function move
     mv -i $argv
 end
 
+######## backup file
 function backup --argument filename
     cp $filename $filename.bak
 end
@@ -111,18 +120,12 @@ end
 ########################################################################
 
 
-  #XAMPP live-server
-  alias xampp='sudo xampp'
+#XAMPP live-server
+alias xampp='sudo xampp'
 
 #Node.Js
 alias snpm="sudo npm"
 alias pn='pnpm'  
-# Allow port for live-server
-alias open-port='sudo ufw allow from any to any port 5500 proto tcp'
-
-  ### Mount Windows
-alias winmnt="sudo mount /dev/sda3 /mnt/hotSpot"
-alias winumnt= "sudo umount /mnt/hotSpot/"
 
 #vim
 alias vim="$EDITOR"
@@ -136,9 +139,6 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 alias rmf='rm -rf'
-
-# hotSpot Drive
-alias hotSpot='cd /mnt/hotSpot/'  
 
 #Custom Clear command
 alias clr='clear;colorscript random'
@@ -171,18 +171,16 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-#pacman command
-alias pacins='sudo pacman -S'
-alias pacrmv='sudo pacman -R'
-alias pacrmv-d='sudo pacman -Rns'
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'             # remove orphaned packages
-alias parurmv='paru -Rns'
-alias pacup='sudo pacman -Syu'
-alias yup='yay -Syu'
-alias pup='paru -Syu'
-alias yin='yay -S'
-alias pin='paru -S'
-alias search="paru"
+#dnf command
+alias pacins='sudo dnf install'
+alias pacrmv='sudo dnf remove --noautoremove'
+alias pacrmvwd='sudo dnf remove'
+alias pacup='sudo dnf update systemd'
+alias search='dnf search'
+alias cleanup='sudo dnf autoremove'
+alias dnflist='dnf grouplist'
+alias groupins='sudo dnf groupinstall'
+alias grouprmv='sudo dnf groupremove'
 
 #Source config
 alias fsource='source ~/.config/fish/config.fish'
@@ -229,53 +227,34 @@ alias wget="wget -c"
 alias userlist="cut -d: -f1 /etc/passwd"
 
 #grub update
-alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-
-
-#get fastest mirrors in your neighborhood
-# Download reflector "sudo pacman -S reflector"
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose  --sort rate --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 30 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 30 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
-alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pacman.d/mirrorlist"
+alias grub-update="sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
 
 #get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
 #Edit with your EDITOR for important configuration files
 alias nlightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
-alias npacman="sudo $EDITOR /etc/pacman.conf"
-alias nparu="sudo $EDITOR /etc/paru.conf"
 alias ngrub="sudo $EDITOR /etc/default/grub"
-alias nconfgrub="sudo $EDITOR /boot/grub/grub.cfg"
-alias nmkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
-alias nmirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
-alias narcomirrorlist='sudo $EDITOR /etc/pacman.d/arcolinux-mirrorlist'
 alias nsddm="sudo $EDITOR /usr/lib/sddm/sddm.conf.d/default.conf"
 alias nfstab="sudo $EDITOR /etc/fstab"
 alias nbash="$VISUAL ~/.bashrc"
 alias nzsh="$VISUAL ~/.zshrc"
 alias nfish="$VISUAL ~/.config/fish/config.fish"
-alias nbspwm="$VISUAL ~/.config/bspwm/bspwmrc"
-alias nsxhkd="$VISUAL ~/.config/sxhkd/sxhkdrc"
-alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
+alias ndnf="sudo $EDITOR /etc/dnf/dnf.conf"
 
 #Edit config file for ricing
 alias ni3="$VISUAL ~/.config/i3/config"
-alias ni3blocks="$VISUAL ~/.config/i3/i3blocks.conf"
-alias npolybar="$VISUAL ~/.config/polybar/config"
+alias nqtile="$VISUAL ~/.config/qtile/config.py"
+alias npolybar="$VISUAL ~/.config/polybar/config.ini"
 alias nkitty="$VISUAL ~/.config/kitty/kitty.conf"
 alias nalacritty="$VISUAL ~/.config/alacritty/alacritty.yml"
 alias npicom="$VISUAL ~/.config/picom/picom.conf"
 alias nxresources="$VISUAL ~/.Xresources"
 alias nstarship="$VISUAL ~/.config/starship.toml"
 alias nneofetch="$VISUAL ~/.config/neofetch/config.conf"
-#systeminfo
-alias probe="sudo -E hw-probe -all -upload"
-alias sysfailed="systemctl list-units --failed"
 
 #shutdown or reboot
-alias shutdown="sudo shutdown now"
+alias shutdown="shutdown now"
 
 #give the list of all installed desktops - xsessions desktops
 alias xd="ls /usr/share/xsessions"
@@ -288,7 +267,6 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
 # the terminal rickroll
 alias rr='curl -s -L http://bit.ly/10hA8iC | bash'
-
 
 ########################################################################
 ###############                   Styling                ###############

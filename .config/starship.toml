@@ -20,13 +20,15 @@ success_symbol = "[  ➜](bold #30f0b2)"  # The "success_symbol" is set to "➜"
 error_symbol = "[  ➜](bold #f24054)"      # used if previous command failed
 
 ########### Dracula Color  ################
-[aws]
-style = "bold #f2f260"
+[nodejs]
+symbol = ""
+style = "bg:#40f290 fg:#212128"
+format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
-format = " [$symbol$branch]($style) "
-symbol = "🐙 "
-style = "#30f0b2"
+format = " [$symbol $branch]($style) "
+symbol = "  "
+style = "bg:#f67e7d fg:#212128"
 
 [git_commit]
 commit_hash_length = 8
@@ -38,7 +40,7 @@ format = '[\($state( $progress_current of $progress_total)\)]($style) '
 style = "bold #f24054"
 
 [git_status]
-conflicted = "⚔️ "
+conflicted = " ☠"
 ahead = "🏎️ 💨 ×${count}"
 behind = "🐢 ×${count}"
 diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"

@@ -95,7 +95,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Fira Code
+    family: Cascadia Code
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -111,7 +111,7 @@ font:
     #style: Bold
     # Italic font face
     #italic:
-    family: Fira Code
+    family: Cascadia Code
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
@@ -127,7 +127,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Fira Code
+    family: Cascadia Code
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
@@ -143,7 +143,7 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Fira Code
+    family: Cascadia Code
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
@@ -154,7 +154,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 10.0
+  size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -574,7 +574,7 @@ schemes:
 # *TomorrowNight
 #*RoyalDark
 
-colors: *RoyalDark
+colors: *Dracula
 
 #######################################
 ##       END OF COLOR SCHEMES        ##

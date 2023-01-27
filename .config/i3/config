@@ -21,14 +21,13 @@
 # Pause = PAUSE key
 # Print = PRINT key
 # Tab = TAB key
-# iconic font icon search: https://fontawesome.com/v5/cheatsheet
 
 ################################################################################
 ############                 config starts here:                    ############
 ################################################################################
 
 # Font for window titles.
-font pango:Fira Code 12
+font pango:Cascadia Code 12
 
 # set the mod key to the winkey:
 set $mod Mod4
@@ -222,14 +221,14 @@ exec_always picom -b --config ~/.config/picom/picom.conf
 ################## autostart applications/services on login
 
 exec --no-startup-id dex --autostart --environment i3 &
-exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit &
+exec --no-startup-id /usr/libexec/xfce-polkit &
 exec --no-startup-id numlockx on &
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 
 #wallpaper Applicaton
 #exec --no-startup-id sleep 2 && nitrogen --set-zoom-fill --random .background/ --save
-#exec --no-startup-id feh --bg-fill --randomize /usr/share/backgrounds/fantacy/* &
-exec --no-startup-id betterlockscreen -w dim 
+exec --no-startup-id feh --bg-fill --randomize /usr/share/backgrounds/fantacy/* &
+#exec --no-startup-id betterlockscreen -w dim 
 
 ### Desktop notifications
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
@@ -289,13 +288,14 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r restart
 
 ################# menu's in archlinux
-# start dmenu
-bindsym $mod+d exec dmenu_run -nb '#1a1e1e' -sf '#212128' -sb '#f24054' -nf '#00e5ff' -fn "Fira Code 12"
-# rofi bindings
+### start dmenu
+bindsym $mod+d exec dmenu_run -nb '#1a1e1e' -sf '#212128' -sb '#f24054' -nf '#00e5ff' -fn "Fira Code 10"
+### rofi bindings   
 bindsym $mod+p exec rofi -modi drun -show drun -config ~/.config/rofi/col_singlerow.rasi
 bindsym $mod+t exec rofi -modi window -show window -config ~/.config/rofi/rofidmenu.rasi
 
-bindsym control+Shift+space exec rofi -modi emoji -show emoji -kb-custom-1 Ctrl+C -emoji-mode insert -emoji-format '{emoji}' -config .config/rofi/emoji-selector.rasi
+bindsym control+Shift+space exec rofimoji --selector-args="-theme ~/.config/rofi/grid.rasi" --hidden-descriptions
+
 
 ############### i3 scripts 
 
@@ -308,7 +308,7 @@ bindsym $mod+Shift+e exec ~/.config/polybar/scripts/powermenu
 # lock by blurring the screen:
 #bindsym $mod+l exec ~/.config/i3/scripts/blur-lock
 #with betterlockscreen
-bindsym $mod+Shift+l exec betterlockscreen --off 120 --lock dimblur
+bindsym $mod+Shift+l exec  
 #### use command "betterlockscreen -u ~/.background"
 
 ### open new empty workspace
@@ -384,7 +384,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease
 
 ######################## App shortcuts
 bindsym $mod+b exec $browser;focus
-bindsym $mod+Shift+w exec chromium;focus
+bindsym $mod+Shift+W exec chromium-browser;focus
 bindsym $mod+e exec $file;focus
 bindsym $mod+n exec $note
 bindsym Insert exec "scrot ~/Pictures/%Y-%m-%d-%T-scr.png"
@@ -423,12 +423,12 @@ assign [class="code-oss|Code|Subl|VSCodium|Geany|Atom"] $ws4
 assign [class="Gimp|kdenlive|figma-linux|Inkscape"] $ws8
 assign [class="vlc|libreoffice"] $ws6
 assign [class="$vm"] $ws5 
-assign [class="Chromium"] $ws5
+assign [class="Chromium-browser"] $ws5
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Alacritty] focus
 for_window [class=firefox] focus
-for_window [class=Chromium] focus
+for_window [class=Chromium-browser] focus
 for_window [class=Thunar] focus
 for_window [class=Pcmanfm] focus
 for_window [class=Geany] focus
@@ -446,7 +446,7 @@ for_window [class=$vm] focus
 #exec --no-startup-id blueberry-tray
 exec --no-startup-id blueman-applet
 # networkmanager-applet
-exec --no-startup-id nm-applet
+exec-always --no-startup-id nm-applet
 # dropbox
 #exec --no-startup-id dropbox start
 
@@ -486,8 +486,10 @@ for_window [class="Engrampa"] floating enable
 for_window [class="File-roller"] floating enable
 for_window [class="Grub Customizer"] floating enable
 for_window [class="Mousepad"] floating enable
+for_window [class="Gedit"] floating enable
 for_window [class="Xed"] floating enable
 for_window [class="gcolor2"] floating enable
+for_window [class="Tk"] floating enable resize set 960 760
 
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [title="alsamixer"] floating enable border pixel 1

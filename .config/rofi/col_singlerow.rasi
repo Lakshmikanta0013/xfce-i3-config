@@ -9,7 +9,7 @@
 
 
 configuration {
-	font:							"Fira Code 12";
+	font:							"Fira Code 10";
     show-icons:                     true;
 	  icon-theme: 					"Papirus";
     display-drun: 					"Applications";
@@ -61,7 +61,7 @@ window {
 	border:							2px 5px;
 	border-color:					@ac;
     border-radius:                  10px;
-	width:							55%;
+	width:							50%;
     location:                       center;
     x-offset:                       0;
     y-offset:                       -5%;
@@ -81,7 +81,7 @@ prompt {
 	background-color: 				@ac;
 	text-color: 					@fg;
     border-radius:                  6px;
-	font:							"Iosevka Nerd Font 12";
+	font:							"Fira Code 10";
 }
 
 textbox-prompt-colon {
@@ -117,7 +117,7 @@ listview {
     background-color:               @al;
     padding:                        0px;
     columns:                        4;
-    lines:                          5;
+    lines:                          7;
     spacing:                       	0.5%;
     cycle:                          true;
     dynamic:                        true;
@@ -143,7 +143,7 @@ element {
 }
 
 element-icon {
-    size:                           36px;
+    size:                           24px;
     border:                         0px;
 }
 

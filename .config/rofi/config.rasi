@@ -1,6 +1,6 @@
 configuration {
 modi: "window,drun,ssh,run";
-/*  width: 50;*/
+/*  width: 30%;*/
 /*  lines: 15;*/
 /*  columns: 2;*/
 /*  font: "mono 12";*/
@@ -149,5 +149,55 @@ modi: "window,drun,ssh,run";
 /*  me-accept-entry: "MouseDPrimary";*/
 /*  me-accept-custom: "Control+MouseDPrimary";*/
 }
-@theme "/usr/share/rofi/themes/android_notification.rasi"
+@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
 /*  window { fullscreen: true; } */
+
+configuration {
+  show-icons:           false;
+	icon-theme: 					"Papirus";
+  display-emoji: 				"Emoji";
+  emoji-display-format: "{name}";
+  disable-history:      false;
+  fullscreen:           false;
+	hide-scrollbar: 			true;
+	sidebar-mode: 				false;
+}
+
+window {
+  transparency:       "real";
+	border:							1px 5px;
+	border-color:				#f24054ff;
+  border-radius:      10px;
+	width:							20%;
+  location:           center;
+  x-offset:           0;
+  y-offset:           -5%;
+}
+
+scrollbar{
+    enabled:          false;
+    handle-width:     0px;
+    handle-color:     #00000000;
+    border-color:     #00000000;
+}
+
+prompt {
+  enabled: 				true;
+	padding: 				1.25% 0.75% 1% 0.75%;
+  border-radius:  6px;
+
+}
+
+entry {
+  placeholder-color:  #666;
+  expand:             true;
+  horizontal-align:   0;
+  placeholder:        "Search...";
+	padding: 						1.5% 0.75% 1% 0;
+  blink:              true;
+}
+
+inputbar {
+	children: 					[ prompt, entry ];
+  expand:             false;
+}
