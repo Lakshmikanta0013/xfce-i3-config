@@ -1,6 +1,6 @@
-from libqtile.config import Group, Click, Drag, Key
+from libqtile.config import Group, Click, Drag, ScratchPad, DropDown, Key
 from libqtile.lazy import lazy
-
+from powermenu import show_power_menu
 
 from var import *
 
@@ -15,6 +15,7 @@ def keybinding() :
         
         ########## Applications
         Key([mod, "shift"], "w", lazy.spawn("chromium-browser")),
+        Key([mod, "shift"], "c", lazy.spawn("galculator")),
         
         ########### Dmenu and Rofi
         Key([mod, "shift"], "Return", lazy.spawn("dmenu_run -nb '#1a1e1e' -sf '#212128' -sb '#f24054' -nf '#00e5ff' -p 'Run: '")),
@@ -24,7 +25,8 @@ def keybinding() :
         ########### Scripts
         Key([mod, "shift"], "l", lazy.spawn("betterlockscreen -l")),
         # Key([mod, "shift"], "e", lazy.spawn("sh /home/lakshmi/.config/qtile/scripts/powermenu")),
-        Key([mod, "shift"], "e", lazy.spawn("rofi -show power-menu -modi power-menu:/home/lakshmi/.config/qtile/scripts/rofi-power-menu -config ~/.config/qtile/scripts/powermenu.rasi")),
+        # Key([mod, "shift"], "e", lazy.spawn("rofi -show power-menu -modi power-menu:/home/lakshmi/.config/qtile/scripts/rofi-power-menu -config ~/.config/qtile/scripts/powermenu.rasi")),
+        Key([mod, "shift"], "e", lazy.function(show_power_menu)),
 
         ############ Switch between windows
         Key([mod], "Left", lazy.layout.left()),
@@ -55,7 +57,7 @@ def keybinding() :
         # multiple stack panes
         Key([mod, "shift"], "s", lazy.layout.toggle_split()),
         Key([mod, "shift"], "space", lazy.window.toggle_floating()),
-        Key([mod], "F11", lazy.window.toggle_fullscreen()),
+        # Key([mod], "F11", lazy.window.toggle_fullscreen()),
 
 
         ########### Toggle between different layouts as defined below
@@ -67,7 +69,13 @@ def keybinding() :
         ########### Multimedia Keys
         Key ([],'XF86AudioRaiseVolume' , lazy.spawn('pamixer -i 5')),
         Key ([],'XF86AudioLowerVolume' , lazy.spawn('pamixer -d 5')),
-        Key ([],'XF86AudioMute' , lazy.spawn("pamixer -t")),   
+        Key ([],'XF86AudioMute' , lazy.spawn("pamixer -t")),
+        
+        Key ([mod],"insert", lazy.spawn("scrot /home/lakshmi/Pictures/%Y-%m-%d-%T-scr.png")),  
+
+
+        ## Scratchpad keybindings
+        Key([mod], "space", lazy.group['scratchpad'].dropdown_toggle('term')),
     ] 
     
     groups = [Group(i) for i in "123456789"]
@@ -91,6 +99,13 @@ def keybinding() :
         ]
     )
     
+    # # Define scratchpads
+    groups.append(ScratchPad("scratchpad", [
+         DropDown("term", terminal , width=0.8, height=0.4, opacity=0.8),
+         DropDown("ranger", "alacritty --class=ranger -e ranger", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
+         DropDown("volume", "pavucontrol", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
+     ]))
+
     return keys
 
 

@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
 <action>
-	<icon>preferences-system-search</icon>
-	<name>Catfish Search</name>
-	<unique-id>1668058875477988-5</unique-id>
-	<command>catfish --hidden %f</command>
-	<description></description>
+	<icon>visual-studio-code</icon>
+	<name>Open in VS-Code</name>
+	<unique-id>1664503744635085-1</unique-id>
+	<command>code -a .</command>
+	<description>Open file or folder in VS-Code text editor</description>
 	<patterns>*</patterns>
+	<startup-notify/>
 	<directories/>
 </action>
 <action>
 	<icon>utilities-terminal</icon>
 	<name>Open Terminal Here</name>
 	<unique-id>1488955845049151-1</unique-id>
-	<command>alacritty</command>
+	<command>kitty</command>
 	<description>Example for a custom action</description>
 	<patterns>*</patterns>
 	<startup-notify/>
@@ -37,16 +38,6 @@
 	<patterns>*</patterns>
 	<other-files/>
 	<text-files/>
-</action>
-<action>
-	<icon>visual-studio-code</icon>
-	<name>Open in VS-Code</name>
-	<unique-id>1664503744635085-1</unique-id>
-	<command>code -a .</command>
-	<description>Open file or folder in VS-Code text editor</description>
-	<patterns>*</patterns>
-	<startup-notify/>
-	<directories/>
 </action>
 <action>
 	<icon>xfce4-fsguard-plugin-warning</icon>

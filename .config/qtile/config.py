@@ -12,6 +12,8 @@ from layouts import layouts, floating_layout
 from workspace import *
 from screens import screens
 
+from extras import *
+
 ##################################
 ######## Autostart Apps ##########
 ##################################

@@ -1,7 +1,11 @@
 from libqtile.config import Screen
+from libqtile.lazy import lazy
 from libqtile import qtile, bar, widget
 from var import terminal
+from qtile_extras import widget
+from qtile_extras.widget.decorations import RectDecoration
 
+from powermenu import show_power_menu
 
 ##########################
 ######    Colors   #######
@@ -13,16 +17,25 @@ from colors import colors, backgroundColor, foregroundColor, workspaceColor
 ###################################
 widget_defaults = dict(
     font="FiraCode Nerd Font",
-    fontsize=12,
+    fontsize=14,
     padding=5,
     background = backgroundColor,
 )
 extension_defaults = widget_defaults.copy()
 
+decor = {
+    "decorations": [
+        RectDecoration(colour='#fff555', radius=0, filled=False, padding_y=0)
+    ],
+    "padding": 10,
+}
+
 top_bar = [
        widget.CurrentLayoutIcon(
            background = backgroundColor,
-           scale = 0.7
+           scale = 0.7,
+           use_mask = True,
+           foreground = colors[7]
        ),
        widget.GroupBox(
            hide_unused = True,
@@ -43,7 +56,7 @@ top_bar = [
               background = backgroundColor,
        ),
        widget.TextBox(
-              text = "",
+              text = "∷",
               width=20,
               background = backgroundColor,
               foreground = colors[4],
@@ -69,7 +82,7 @@ top_bar = [
               background = backgroundColor,
        ),
        widget.TextBox(
-              text = "",
+              text = "∷",
               width=20,
               background = backgroundColor,
               foreground = colors[4],
@@ -103,10 +116,17 @@ top_bar = [
               foreground = foregroundColor,
               background = colors[9]
        ),
+       widget.TextBox(
+        text = "",
+        width = 16,
+        foreground = foregroundColor,
+        background = colors[8],
+        fontsize = 20
+        ),
        widget.Net(
-           background = colors[7],
+           background = colors[8],
            foreground = foregroundColor,
-           format='↓↑{down}',
+           format='{down}',
            prefix='k'
        ),
        widget.Sep(
@@ -221,7 +241,7 @@ top_bar = [
          background = '#ff5555',
          padding = 10,
          fontsize = 22,
-         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("/home/lakshmi/.config/qtile/scripts/powermenu")},    
+         mouse_callbacks={"Button1": lazy.function(show_power_menu)},    
        ),
        widget.Sep(
               linewidth = 0,
