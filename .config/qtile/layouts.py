@@ -18,18 +18,18 @@ layout_theme = {"border_width": 1,
 }
 layouts = [
     layout.Bsp(name="bsp", **layout_theme),
-    layout.Columns(**layout_theme),
-    layout.MonadTall(
-        align = 'MonadTall._left',
-        ratio = 0.42,
-        new_client_position = 'bottom',
-        **layout_theme),
+    #layout.Columns(**layout_theme),
+    #layout.MonadTall(
+    #    align = 'MonadTall._left',
+    #    ratio = 0.42,
+    #    new_client_position = 'bottom',
+    #    **layout_theme),
     layout.Max(**layout_theme),
-    layout.Floating(
-            border_width = 2,
-            border_focus=colors[9],
-            border_normal= backgroundColor
-    )
+    #layout.Floating(
+    #        border_width = 2,
+    #        border_focus=colors[9],
+    #        border_normal= backgroundColor
+    #)
 ]
 
 ###################################
@@ -62,6 +62,7 @@ floating_layout = layout.Floating(
         Match(wm_class='Grub Customize'),
         Match(wm_class='Xed'),
         Match(wm_class='Pavucontrol'),
+        Match(wm_class ='audacious'),
         Match(wm_class='Xfce4-power-manager-settings'),
     ],
     border_width = 2,

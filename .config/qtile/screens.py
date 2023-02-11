@@ -31,12 +31,22 @@ decor = {
 }
 
 top_bar = [
-       widget.CurrentLayoutIcon(
-           background = backgroundColor,
-           scale = 0.7,
-           use_mask = True,
-           foreground = colors[7]
+       widget.TextBox(
+           text = "",
+           width=30,
+           background = '#ff5555',
+           foreground = backgroundColor,
+           padding = 8,
+           margin = 5,
+           fontsize = 20,
+           mouse_callbacks={"Button1": lazy.spawn("rofi -modi drun -show drun -config ~/.config/rofi/panel.rasi")},
        ),
+       #widget.CurrentLayoutIcon(
+        #   background = backgroundColor,
+        #   scale = 0.7,
+        #   use_mask = True,
+        #  foreground = colors[7]
+       #),
        widget.GroupBox(
            hide_unused = True,
            highlight_method='block',
@@ -74,7 +84,8 @@ top_bar = [
            max_chars = 60,
            foreground = foregroundColor,
            padding_x = 10,
-           background = colors[4]
+           background = colors[4],
+           fontsize = 14
        ),
        widget.Sep(
               linewidth = 0,
@@ -203,7 +214,8 @@ top_bar = [
               foreground = foregroundColor,
               background = colors[10],
               padding = 0,
-              fontsize = 30
+              fontsize = 30,
+              mouse_callbacks={"Button1": lazy.spawn("pavucontrol")},
               ),
        widget.Volume(
            background = colors[10],

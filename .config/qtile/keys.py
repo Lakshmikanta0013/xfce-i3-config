@@ -14,13 +14,13 @@ def keybinding() :
         Key([mod], "c", lazy.spawn(codeEditor)),  
         
         ########## Applications
-        Key([mod, "shift"], "w", lazy.spawn("chromium-browser")),
+        Key([mod, "shift"], "w", lazy.spawn(broswer_alt)),
         Key([mod, "shift"], "c", lazy.spawn("galculator")),
         
         ########### Dmenu and Rofi
         Key([mod, "shift"], "Return", lazy.spawn("dmenu_run -nb '#1a1e1e' -sf '#212128' -sb '#f24054' -nf '#00e5ff' -p 'Run: '")),
         Key([mod], "p", lazy.spawn("rofi -modi drun -show drun -config ~/.config/rofi/col_singlerow.rasi")),
-        Key(['control', 'shift'], "space", lazy.spawn("rofimoji --selector-args='-theme ~/.config/rofi/grid.rasi' --hidden-descriptions")),
+        Key(['control', 'shift'], "space", lazy.spawn("rofimoji --selector-args='-theme /home/lakshmi/.config/rofi/grid.rasi' --hidden-descriptions")),
         
         ########### Scripts
         Key([mod, "shift"], "l", lazy.spawn("betterlockscreen -l")),
@@ -72,10 +72,6 @@ def keybinding() :
         Key ([],'XF86AudioMute' , lazy.spawn("pamixer -t")),
         
         Key ([mod],"insert", lazy.spawn("scrot /home/lakshmi/Pictures/%Y-%m-%d-%T-scr.png")),  
-
-
-        ## Scratchpad keybindings
-        Key([mod], "space", lazy.group['scratchpad'].dropdown_toggle('term')),
     ] 
     
     groups = [Group(i) for i in "123456789"]
@@ -99,13 +95,6 @@ def keybinding() :
         ]
     )
     
-    # # Define scratchpads
-    groups.append(ScratchPad("scratchpad", [
-         DropDown("term", terminal , width=0.8, height=0.4, opacity=0.8),
-         DropDown("ranger", "alacritty --class=ranger -e ranger", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
-         DropDown("volume", "pavucontrol", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
-     ]))
-
     return keys
 
 

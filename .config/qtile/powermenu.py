@@ -51,7 +51,7 @@ def show_power_menu(qtile):
             pos_y=20,
             highlight= colors[8],
             mouse_callbacks={
-                "Button1": lazy.spawn("betterlockscreen --off 10 --lock dimblur")
+                "Button1": lazy.spawn("systemctl suspend")
             },
             **config_img,
         ),
@@ -70,7 +70,7 @@ def show_power_menu(qtile):
             pos_y=20,
             highlight= colors[9],
             mouse_callbacks={
-                "Button1": lazy.spawn("reboot")
+                "Button1": lazy.spawn("systemctl reboot")
             },
             **config_img
         ), 
@@ -89,7 +89,7 @@ def show_power_menu(qtile):
             pos_y=20,
             highlight= colors[10],
             mouse_callbacks={
-                "Button1": lazy.spawn("shutdown now")
+                "Button1": lazy.spawn("systemctl poweroff")
             },
             **config_img
         ), 

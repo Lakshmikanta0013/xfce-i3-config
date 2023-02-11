@@ -7,6 +7,7 @@ import subprocess
 from libqtile import hook
 
 from var import *
+from assign_app import assign_app_group
 from keys import keybinding, mouse
 from layouts import layouts, floating_layout
 from workspace import *
