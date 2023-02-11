@@ -27,13 +27,13 @@
 ################################################################################
 
 # Font for window titles.
-font pango:Cascadia Code 12
+font pango: FiraCode Nerd Font 11
 
 # set the mod key to the winkey:
 set $mod Mod4
 
 #set default applications
-set $terminal alacritty
+set $terminal kitty
 set $browser firefox
 set $file thunar
 set $editor code
@@ -67,7 +67,7 @@ workspace_layout default
 ##############################
 
 #border indicator on windows:
-new_window pixel 1
+new_window pixel 3
 
 # thin borders
 # hide_edge_borders both
@@ -78,10 +78,10 @@ new_window pixel 1
 # delete or uncomment the following lines if you do not have it or do not
 # want it
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 3
 gaps inner 2
 gaps outer 2
-smart_gaps on
+#smart_gaps on
 smart_borders on
 
 ################## i3 gaps change                   
@@ -221,9 +221,9 @@ exec_always picom -b --config ~/.config/picom/picom.conf
 ################## autostart applications/services on login
 
 exec --no-startup-id dex --autostart --environment i3 &
-exec --no-startup-id /usr/libexec/xfce-polkit &
+exec --no-startup-id  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id numlockx on &
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 
 #wallpaper Applicaton
 #exec --no-startup-id sleep 2 && nitrogen --set-zoom-fill --random .background/ --save
@@ -285,7 +285,7 @@ bindsym $mod+Shift+q kill
 
 # reload & restart the configuration file
 #bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+bindsym $mod+control+r restart
 
 ################# menu's in archlinux
 ### start dmenu
@@ -368,9 +368,13 @@ bindsym $mod+Shift+c focus child
 #bindsym XF86AudioMute exec amixer sset Master toggle 
 
 ### Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pamixer -i 5 
-bindsym XF86AudioLowerVolume exec pamixer -d 5 
-bindsym XF86AudioMute exec pamixer -t && dunstify -h string:x-dunst-stack-tag:mute mute: $(pamixer --get-mute)!
+#bindsym XF86AudioRaiseVolume exec pamixer -i 5 
+#bindsym XF86AudioLowerVolume exec pamixer -d 5 
+#bindsym XF86AudioMute exec pamixer -t && dunstify -h string:x-dunst-stack-tag:mute mute: $(pamixer --get-mute)!
+bindsym XF86AudioMute         exec --no-startup-id pamixer -t     && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume  exec --no-startup-id pamixer -d 5   && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume  exec --no-startup-id pamixer -i 5   && pkill -RTMIN+1 i3blocks
+
 
 ### play/pause keys
 bindsym XF86AudioPlay exec playerctl play
@@ -453,6 +457,11 @@ exec-always --no-startup-id nm-applet
 ####################################
 ########   floating rules    #######
 ####################################
+#floating_minimum_size <width> x <height>
+#floating_minimum_size 800 x 540
+#floating_maximum_size -1 x -1
+#default_floating_border normal|none|pixel
+default_floating_border pixel 3
 
 for_window [floating_from="user"] border pixel 2 
 
@@ -468,6 +477,7 @@ for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Xarchiver"] floating enable
 for_window [class="octopi"] floating enable
+for_window [class="Synaptic"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Rhythmbox"] floating enable
@@ -502,7 +512,7 @@ for_window [title="^Terminator Preferences$"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="^Preferences$"] floating enable
 for_window [window_role="setup"] floating enable
-for_window [window_role="GtkFileChooserDialog"] floating enable resize set 800 640
+for_window [window_role="GtkFileChooserDialog"] floating enable resize set 640 600
 
 
 
@@ -511,67 +521,70 @@ for_window [window_role="GtkFileChooserDialog"] floating enable resize set 800 6
 ######################################
 
 # //// Dracula Color ////
-#set $bgcolor    #282a36
-#set $ibgcolor   #44475a
-#set $textcolor  #f8f8f2
-#set $itextcolor #6272a4
-#set $red        #ff5555
-#set $yellow     #f1fa8c
-#set $green      #50fa7b
-#set $cyan       #8be9fd
-#set $orange     #ffb86c
-#set $pink       #ff79c6
-#set $purple     #de93f9
-# define colors for windows:
+set $bgcolor    #282a36
+set $ibgcolor   #44475a
+set $textcolor  #f8f8f2
+set $itextcolor #6272a4
+set $red        #ff5555
+set $yellow     #f1fa8c
+set $green      #50fa7b
+set $cyan       #8be9fd
+set $orange     #ffb86c
+set $pink       #ff79c6
+set $purple     #de93f9
+#define colors for windows:
 #                          border          background      text            indicator
-#client.focused             $purple         $bgcolor        $textcolor      $bgcolor
-#client.unfocused           $purple         $ibgcolor       $textcolor      $ibgcolor
-#client.focused_inactive    $purple         $ibgcolor       $itextcolor     $ibgcolor
-#client.urgent              $red            $red            $textcolor      $red
+client.focused             $red         $bgcolor        $textcolor      $bgcolor
+client.unfocused           $red         $ibgcolor       $textcolor      $ibgcolor
+client.focused_inactive    $red         $ibgcolor       $itextcolor     $ibgcolor
+client.urgent              $red            $red            $textcolor      $red
 
 # //// Royal Dark ////
-set $bgdark     #1a1a1e
-set $bgcolor    #212128
-set $ibgcolor   #56566c
-set $textcolor  #eeeef4
-set $itextcolor #d0d0d0
-set $red        #f24054
-set $yellow     #f2f230
-set $green      #40f260
-set $cyan       #00e5ff
-set $tela       #30f0b2
-set $blue       #7755f2
-set $magenta    #f240f2
+#set $bgdark     #1a1a1e
+#set $bgcolor    #212128
+#set $ibgcolor   #56566c
+#set $textcolor  #eeeef4
+#set $itextcolor #d0d0d0
+#set $red        #f24054
+#set $yellow     #f2f230
+#set $green      #40f260
+#set $cyan       #00e5ff
+#set $tela       #30f0b2
+#set $blue       #7755f2
+#set $magenta    #f240f2
 
 # define colors for windows:
 #                          border          background      text            indicator
-client.focused             $bgdark         $tela          $textcolor      $bgcolor
-client.unfocused           $bgdark         $ibgcolor      $textcolor      $ibgcolor
-client.focused_inactive    $bgdark         $ibgcolor      $itextcolor     $ibgcolor
-client.urgent              $ibgcolor       $red           $textcolor      $red
+#client.focused             $bgdark         $tela          $textcolor      $bgcolor
+#client.unfocused           $bgdark         $ibgcolor      $textcolor      $ibgcolor
+#client.focused_inactive    $bgdark         $ibgcolor      $itextcolor     $ibgcolor
+#client.urgent              $ibgcolor       $red           $textcolor      $red
 
 ############################################
 # bar settings (input comes from i3blocks) #
 ############################################
 
-#bar {
-#    font pango: Hack Nerd Font 11
-#    output primary
-#    position top
-#    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#    strip_workspace_numbers yes
-#    tray_output primary
-#
-#    colors {
-#        background $ibgcolor
-#        statusline $textcolor
-#        separator  $cyan
-#
-#        active_workspace        $bgdark           $bgcolor        $textcolor           $red
-#        focused_workspace       $bgcolor           $tela         $bgcolor             $red
-#        inactive_workspace      $ibgcolor          $ibgcolor       $itextcolor          $red
-#        urgent_workspace        $red               $red            $textcolor           $red
-#
-#        
-#    }
-#}
+bar {
+    font pango: CaskaydiaCove Nerd Font 11
+    output primary
+    position top
+    status_command  i3blocks #i3blocks -c ~/.config/i3/i3blocks.conf
+    workspace_buttons yes
+    strip_workspace_numbers yes
+    workspace_min_width 30
+    tray_output primary
+    binding_mode_indicator yes
+    separator_symbol "|"
+
+    colors {
+        background $bgcolor
+        statusline $textcolor
+        separator  $cyan
+                           #boreder #backgroung #text
+        focused_workspace  $cyan  $cyan       $bgcolor
+        active_workspace   $cyan  $cyan       $bgcolor
+        inactive_workspace $cyan  $ibgcolor   $textcolor
+        urgent_workspace   $cyan  $red        $bgcolor
+        binding_mode       $cyan  $green      $bgcolor        
+    }
+}
